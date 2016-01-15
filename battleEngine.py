@@ -5,7 +5,7 @@ attackOption = "attack"
 runOption = "run"
 print ("A wild beast has appeared!")
 print ("Choices: attack  run")
-input1 = input("What do you do? ")
+input1 = raw_input("What do you do? ")
 #-----------------------------------
 if input1 == runOption:
     runChance = random.randint(0, 5)
