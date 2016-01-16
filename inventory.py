@@ -1,7 +1,7 @@
 # This is a stats and inventory concept.
 # Written by HalfKelp.
 
-# I integrated stats.py into the inventory.py
+# I integrated stats into the inventory.py
 # These are the stats you start with at the beginning of the game.
 def defaultStats():
     mana = 0
@@ -34,4 +34,7 @@ def showStats():
     print(" ")
     print("XP:")
     print(xp)
+    print(" ")
+    print("Money:")
+    print(money)
     print(" ")
