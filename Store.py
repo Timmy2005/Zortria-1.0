@@ -1,5 +1,8 @@
 Sword = False
-Bow_an_Arrow = False
+BowAndArrow = False
+from gameMove import money
+import time
+
 
 def store():
         print"Store"
@@ -12,8 +15,8 @@ def store():
         print("Do you want to buy anything today?('yes' or 'no')  ").lower()
         buy = raw_input("> ")
         if buy == "yes":
-        	choice = raw_input("What do you want to buy?('Sword','Bow an Arrow' or 'no' if you don't want to buy anything)").lower()
-        	choice = raw_input("> ")
+        	print("What do you want to buy?('Sword','Bow an Arrow' or 'no' if you don't want to buy anything)")
+        	choice = raw_input("> ").lower()
         	if choice == "bow an arrow":
                 	print"You just bought a Bow an Arrow!"
                 	Bow_an_Arrow = True
