@@ -8,7 +8,8 @@ print ("A wild beast has appeared!")
 print ("Choices: attack, run or go to the store")
 
 while running:
-
+	
+	beastHealth2 = str(beastHealth)
 	input1 = raw_input("What do you want to do?  ").lower()
 	if input1 == runOption:
 		runChance = random.randint(0, 5)
@@ -29,7 +30,7 @@ while running:
 			
 			
 		beastHealth = beastHealth - attackDamage
-		print("You hit him! Beast has" + beastHealth + "health now.")
+		print("You hit him! Now the beast has " + beastHealth2 + " health now.")
 		
 		if beastHealth == 0:
 			running = False
