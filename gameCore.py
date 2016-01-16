@@ -11,8 +11,12 @@ import Store
 import gameMove
 from Store import showStore
 from inventory import showInventory
+<<<<<<< HEAD
 from gameMove import Move
 
+=======
+from Store import store
+>>>>>>> fdda31d1a3f65e4fef1e971a38f2295c50039f99
 def playerAction():
     # This is the 'playerAction' function. It is used for typing commands.
     Move()#This is from 'gameMove.py'
@@ -32,6 +36,9 @@ def playerAction():
         if exitConfirm == "no":
             print("Will not exit the game.")
             playerAction()
+    #if playerInput == "shop":
+    #    if playerLocationX == something and playerLocationY == something:
+    #        store()
     else:
         print("Invalid command.")
         playerAction()
