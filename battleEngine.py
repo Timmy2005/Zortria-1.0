@@ -5,7 +5,7 @@ running = True
 attackOption = "attack"
 runOption = "run"
 print ("A wild beast has appeared!")
-print ("Choices: attack  run")
+print ("Choices: attack, run or go to the store")
 
 while running:
 
@@ -29,6 +29,7 @@ while running:
 			
 			
 		beastHealth = beastHealth - attackDamage
+		print("You hit him! Beast has" + beastHealth + "health now.")
 		
 		if beastHealth == 0:
 			running = False
@@ -37,6 +38,3 @@ while running:
 		
 	if input1 == "quit":
 		running = False
-		
-  	else:
-  		beastHealth = beastHealth - attackDamage

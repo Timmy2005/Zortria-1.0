@@ -1,4 +1,3 @@
-
 Sword = False
 Bow_an_Arrow = False
 
@@ -19,3 +18,5 @@ if buy == "yes":
 	if choise == "sword":
 		print"You just bought a Sword!"
 		Sword = True
+	
+	print"Now your ready to slay the monster and save the princess!"
