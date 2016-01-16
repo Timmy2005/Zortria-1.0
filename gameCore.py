@@ -9,14 +9,10 @@ from gameStartTest import gameStart
 import inventory
 import Store
 import gameMove
-from Store import showStore
-from inventory import showInventory
-<<<<<<< HEAD
-from gameMove import Move
-
-=======
 from Store import store
->>>>>>> fdda31d1a3f65e4fef1e971a38f2295c50039f99
+from inventory import showInventory
+from Store import store
+
 def playerAction():
     # This is the 'playerAction' function. It is used for typing commands.
     Move()#This is from 'gameMove.py'
@@ -25,7 +21,7 @@ def playerAction():
     	showInventory() # This function is defined in the 'inventory.py' file.
         playerAction()
     if playerInput == "store":
-    	showStore()
+    	store()
     	playerAction()
     if playerInput == "exitgame":
         print("Are you sure you want to quit? ('yes' or 'no')")
