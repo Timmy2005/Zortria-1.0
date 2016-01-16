@@ -25,6 +25,7 @@ def Move():
 	if direction == "west":
 		corNumberX = corNumberX - 1
 
+def monsterMove():
 	monsterMove = random.randint(1,4)
 	if monsterMove == 1:
 		monsterX = monsterX + 1
