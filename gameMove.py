@@ -3,33 +3,19 @@
 # north = corNumberY + 1
 # south = corNumberX - 1
 
+
 import random
-import battleEngine
-from battleEngine import battleInput
-from inventory import defaultStats
 monsterX = random.randint(0,10)
 monsterY = random.randint(0,10)
-running = True
-corNumberY = 1
-corNumberX = 5
 
-money = defaultStats()
-
-#def Move():
-#	global corNumberX
-#	global corNumberY
-#	print"Movement options: North  South  East  West"
-#	direction = raw_input(">").lower()
-#	if direction == "north":
-#		corNumberY = corNumberY + 1
-#	if direction == "south":
-#		corNumberY = corNumberY - 1
-#	if direction == "east":
-#		corNumberX = corNumberX + 1
-#	if direction == "west":
-#		corNumberX = corNumberX - 1
+global monsterX
+global monsterY
 
 def monsterMove():
+	
+	global monsterX
+	global monsterY
+	
 	monsterMove = random.randint(1,4)
 	if monsterMove == 1:
 		monsterX = monsterX + 1
@@ -39,8 +25,5 @@ def monsterMove():
 		monsterY = monsterY + 1
 	if monsterMove == 4:
 		monsterY = monsterY - 1
-	
-	if monsterX == corNumberX:
-		if monsterY == corNumberY:
-			battleInput()
-			
+		
+	return monsterX, monsterY

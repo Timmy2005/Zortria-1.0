@@ -10,8 +10,11 @@ from gameStartTest import gameStart
 import inventory
 import Store
 import gameMove
+from gameMove import monsterMove
 from Store import store
 from inventory import showInventory
+import battleEngine
+from battleEngine import battleInput
 corNumberX = 5
 corNumberY = 1
 
@@ -22,6 +25,13 @@ def playerAction():
 	# This is the 'playerAction' function. It is used for typing commands
 	global corNumberX
 	global corNumberY
+
+	monsterX, monsterY = monsterMove()
+	monsterMove()
+	if monsterX == corNumberX:
+		if monsterY == corNumberY:
+			battleInput()
+			
 	corNumX = str(corNumberX)
 	corNumY = str(corNumberY)
 	print("You are at X:" + corNumX + " Y:" + corNumY)
@@ -31,7 +41,6 @@ def playerAction():
 		corNumberY = corNumberY + 1
 		playerAction()
 	else:
-		print"HI"
 		if playerInput == "south":
 			corNumberY = corNumberY - 1
 			playerAction()
@@ -64,6 +73,10 @@ def playerAction():
 								else:
 									print("Invalid command.")
 									playerAction()
+	
+	#if monsterX == corNumberX:
+	#	if monsterY == corNumberY:
+	#		battleInput()
     # And I'll let Timmy2005 finish the code.
 
 
