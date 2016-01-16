@@ -8,6 +8,12 @@ def defaultStats():
     health = 20
     level = 1
     xp = 0
+    money = 0
+    global mana
+    global health
+    global level
+    global xp
+    global money
 
 def showInventory():
     if BowAndArrow == True:
