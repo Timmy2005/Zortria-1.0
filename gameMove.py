@@ -6,12 +6,14 @@
 import random
 import battleEngine
 from battleEngine import battleInput
+from inventory import defaultStats
 monsterX = random.randint(0,10)
 monsterY = random.randint(0,10)
 running = True
 corNumberX = 5
 corNumberY = 1
-money = 100
+defaultStats()
+#print(money)
 
 def Move():
 	print"Movement options: North  South  East  West"
