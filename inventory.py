@@ -4,17 +4,12 @@
 # I integrated stats into the inventory.py
 # These are the stats you start with at the beginning of the game.
 def defaultStats():
-    global mana
-    global health
-    global level
-    global xp
-    global money
     mana = 0
     health = 20
     level = 1
     xp = 0
     money = 0
-    print (money)
+    return money
 
 def showInventory():
     if BowAndArrow == True:

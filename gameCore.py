@@ -12,11 +12,14 @@ import Store
 import gameMove
 from Store import store
 from inventory import showInventory
-from Store import store
+from gameMove import Move
+
 
 def playerAction():
     # This is the 'playerAction' function. It is used for typing commands.
-    Move()#This is from 'gameMove.py'
+    global corNumber
+    global corNumberY 
+    Move()
     playerInput = raw_input("> ").lower()
     if playerInput == "inventory":
     	showInventory() # This function is defined in the 'inventory.py' file.
@@ -40,5 +43,8 @@ def playerAction():
 
 
 gameStart()
+corNumberX = 5
+corNumberY = 1
+#This is from 'gameMove.py'
 print("Input Command.")
 playerAction()

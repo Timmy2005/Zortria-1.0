@@ -10,12 +10,14 @@ from inventory import defaultStats
 monsterX = random.randint(0,10)
 monsterY = random.randint(0,10)
 running = True
-corNumberX = 5
 corNumberY = 1
-defaultStats()
-#print(money)
+corNumberX = 5
+
+money = defaultStats()
 
 def Move():
+	global corNumberX
+	global corNumberY
 	print"Movement options: North  South  East  West"
 	direction = raw_input(">").lower()
 	if direction == "north":
