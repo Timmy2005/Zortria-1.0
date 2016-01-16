@@ -15,19 +15,19 @@ corNumberX = 5
 
 money = defaultStats()
 
-def Move():
-	global corNumberX
-	global corNumberY
-	print"Movement options: North  South  East  West"
-	direction = raw_input(">").lower()
-	if direction == "north":
-		corNumberY = corNumberY + 1
-	if direction == "south":
-		corNumberY = corNumberY - 1
-	if direction == "east":
-		corNumberX = corNumberX + 1
-	if direction == "west":
-		corNumberX = corNumberX - 1
+#def Move():
+#	global corNumberX
+#	global corNumberY
+#	print"Movement options: North  South  East  West"
+#	direction = raw_input(">").lower()
+#	if direction == "north":
+#		corNumberY = corNumberY + 1
+#	if direction == "south":
+#		corNumberY = corNumberY - 1
+#	if direction == "east":
+#		corNumberX = corNumberX + 1
+#	if direction == "west":
+#		corNumberX = corNumberX - 1
 
 def monsterMove():
 	monsterMove = random.randint(1,4)
@@ -44,6 +44,3 @@ def monsterMove():
 		if monsterY == corNumberY:
 			battleInput()
 			
-	corNumX = str(corNumberX)
-	corNumY = str(corNumberY)
-	print("You are at X:" + corNumX + " Y:" + corNumY)
