@@ -9,7 +9,7 @@ from gameStartTest import gameStart
 import inventory
 import Store
 import gameMove
-from Store import showStore
+from Store import store
 from inventory import showInventory
 from Store import store
 
@@ -21,7 +21,7 @@ def playerAction():
     	showInventory() # This function is defined in the 'inventory.py' file.
         playerAction()
     if playerInput == "store":
-    	showStore()
+    	store()
     	playerAction()
     if playerInput == "exitgame":
         print("Are you sure you want to quit? ('yes' or 'no')")
