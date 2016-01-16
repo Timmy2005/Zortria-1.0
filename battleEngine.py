@@ -16,7 +16,7 @@ while running:
 			print("You got away!")
 			
 		else:
-			print("Oh no! The beast caught you!")
+			print"Oh no! The beast caught you!"
     		running = False
 
 

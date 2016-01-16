@@ -8,6 +8,7 @@
 from gameStartTest import gameStart
 import inventory
 from inventory import showInventory
+from Store import store
 def playerAction():
     # This is the 'playerAction' function. It is used for typing commands.
     playerInput = raw_input("> ")
@@ -23,6 +24,9 @@ def playerAction():
         if exitConfirm == "no":
             print("Will not exit the game.")
             playerAction()
+    #if playerInput == "shop":
+    #    if playerLocationX == something and playerLocationY == something:
+    #        store()
     else:
         print("Invalid command.")
         playerAction()

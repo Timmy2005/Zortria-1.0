@@ -14,14 +14,15 @@ def gameStart():
         print ("'Hello " + playerName + ". You must be the game creator!'")
     else:
         print("'" + playerName + ". What a wonderful name!'")
-    
+      
     time.sleep(2)
     print(" ")
     print("'" + playerName + ", your journey is about to begin!'")
     time.sleep(2)
     print("'You will fight monsters, get a key, and save the princess!'")
     time.sleep(2)
-    beginJourney = raw_input("'Do you want to take on the challenge?' ('yes' or 'no')  ")
+    print("'Do you want to take on the challenge?' ('yes' or 'no')  ")
+    beginJourney = raw_input("> ")
     if beginJourney == "yes":
         print("'Alright! Let's go!'")
     if beginJourney == "no":
@@ -29,7 +30,7 @@ def gameStart():
         time.sleep(2)
         print("GAME OVER - Didn't even make it past Step 1.")
         quit()
-
+        
     time.sleep(2)
     print(" ")
     print(" ")
