@@ -4,6 +4,7 @@
 # <variable> = raw_input("> ")
 #
 # Do it EXACTLY as shown above. Copy and paste if you need to.
+# You also need 
 
 from gameStartTest import gameStart
 import inventory
@@ -32,9 +33,6 @@ def playerAction():
         if exitConfirm == "no":
             print("Will not exit the game.")
             playerAction()
-    #if playerInput == "shop":
-    #    if playerLocationX == something and playerLocationY == something:
-    #        store()
     else:
         print("Invalid command.")
         playerAction()
