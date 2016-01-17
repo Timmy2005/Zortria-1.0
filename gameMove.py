@@ -3,13 +3,12 @@
 # north = corNumberY + 1
 # south = corNumberX - 1
 
+global monsterX
+global monsterY
 
 import random
 monsterX = random.randint(0,10)
 monsterY = random.randint(0,10)
-
-global monsterX
-global monsterY
 
 def monsterMove():
 	

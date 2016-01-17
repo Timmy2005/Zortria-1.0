@@ -5,32 +5,37 @@
 # These are the stats you start with at the beginning of the game.
 def defaultStats():
     mana = 0
-    health = 20
+    playerHealth = 20
     level = 1
     xp = 0
-    money = 0
-    return money
+    money = 100
+    return mana, playerHealth, level, xp, money
 
 def showInventory():
-    if BowAndArrow == True:
-        print("Bow & Arrow")
-    if Sword == True:
-        print("Sword")
+	Sword, BowAndArrow = store()
+	if BowAndArrow == True:
+		print("Bow & Arrow")
+	if Sword == True:
+		print("Sword")
 
 def showStats():
-    print(" ")
-    print("Mana:")
-    print(mana)
-    print(" ")
-    print("Health:")
-    print(health)
-    print(" ")
-    print("Level:")
-    print(level)
-    print(" ")
-    print("XP:")
-    print(xp)
-    print(" ")
-    print("Money:")
-    print(money)
-    print(" ")
+	print(" ")
+	print("Mana:")
+	print(mana)
+	print(" ")
+	print("Health:")
+	print(playerHealth)
+	print(" ")
+	print("Level:")
+	print(level)
+	print(" ")
+	print("XP:")
+	print(xp)
+	print(" ")
+	print("Money:")
+	print(money)
+	print(" ")
+	
+showStats()
+showInventory()
+defaultStats()

@@ -1,39 +1,42 @@
+global Sword
+global BowAndArrow
+
 Sword = False
 BowAndArrow = False
 #from gameMove import money
 import time
 
-global Sword
-global BowAndArrow
+
 
 def store():
 
 		global Sword
 		global BowAndArrow
-		
+				
 		print"Store"
+		time.sleep(1.5)
 		print""
 		if Sword == False:
 			print"Sword -- $100"
+			time.sleep(1.5)
 		if BowAndArrow == False:
 			print"Bow an Arrow -- $150"
+			time.sleep(1.5)
 			
 		print""
 		print("Do you want to buy anything today?('yes' or 'no')  ").lower()
 		buy = raw_input("> ")
 		if buy == "yes":
-			print("What do you want to buy?('Sword','Bow an Arrow' or 'no' if you don't want to buy anything)")
+			print("What do you want to buy?('Sword','Bow and Arrow' or 'nothing')")
 			choice = raw_input("> ").lower()
-			if choice == "bow an arrow":
-				print"You just bought a Bow an Arrow!"
-				Bow_an_Arrow = True
-				store()
+			if choice == "bow and arrow":
+				print"You just bought a Bow and Arrow!"
+				BowAndArrow = True
 				
 				if choice == "sword":
 					print"You just bought a Sword!"
 					Sword = True
-					store()
-					if choice == "no":
+					if choice == "nothing":
 						print "Now get out there and hammer those monsters!"
 						time.sleep(1)
 						playerAction()
@@ -41,3 +44,5 @@ def store():
 				print "Now get out there and hammer those monsters!"
 				time.sleep(1)
 				playerAction()
+			
+			return Sword, BowAndArrow

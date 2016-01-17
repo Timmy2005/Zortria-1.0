@@ -5,7 +5,10 @@
 #
 # Do it EXACTLY as shown above. Copy and paste if you need to.
 # You also need 
+global corNumberX
+global corNumberY
 
+import time
 from gameStartTest import gameStart
 import inventory
 import Store
@@ -13,13 +16,11 @@ import gameMove
 from gameMove import monsterMove
 from Store import store
 from inventory import showInventory
+from inventory import showStats
 import battleEngine
 from battleEngine import battleInput
 corNumberX = 5
 corNumberY = 1
-
-global corNumberX
-global corNumberY
 
 def playerAction():
 	# This is the 'playerAction' function. It is used for typing commands
@@ -66,13 +67,19 @@ def playerAction():
 								exitConfirm = raw_input("> ")
 								if exitConfirm == "yes":
 									print("Exiting the game...")
+									time.sleep(1)
+									print("Exited.")
 									exit()
 								if exitConfirm == "no":
 									print("Will not exit the game.")
 									playerAction()
 								else:
-									print("Invalid command.")
-									playerAction()
+									if playerInput == "stats":
+										showStats()
+										playerAction()
+									else:
+										print("Invalid command.")
+										playerAction()
 	
 	#if monsterX == corNumberX:
 	#	if monsterY == corNumberY:

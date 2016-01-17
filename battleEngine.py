@@ -1,11 +1,21 @@
+global beastHealth
+global attackOption
+global playerHealth
+global runOption
+
 import random
 beastHealth = 5
 playerHealth = 10
-running = True
 attackOption = "attack"
 runOption = "run"
 
 def battleInput():
+	
+	global beastHealth
+	global attackOption
+	global playerHealth
+	global runOption
+	
 	print ("The wild beast has appeared!")
 	print ("Choices: attack, run")
 	input1 = raw_input("What do you want to do?  ").lower()

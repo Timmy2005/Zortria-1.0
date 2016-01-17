@@ -12,6 +12,7 @@ def gameStart():
     playerName = raw_input("> ")
     if playerName == "HalfKelp" or playerName == "Timmy2005":
         print ("'Hello " + playerName + ". You must be the game creator!'")
+        time.sleep(2)
     else:
         print("'" + playerName + ". What a wonderful name!'")
         time.sleep(2)
@@ -24,6 +25,7 @@ def gameStart():
     beginJourney = raw_input("> ")
     if beginJourney == "yes":
         print("'Alright! Let's go!'")
+        time.sleep(2)
     if beginJourney == "no":
         print("'Then I'm afraid we're doomed...'")
         time.sleep(3)
