@@ -3,22 +3,46 @@
 
 # I integrated stats into the inventory.py
 # These are the stats you start with at the beginning of the game.
+import Store
+from Store import store
+global Sword
+global BowAndArrow
+Sword, BowAndArrow = store()
+global mana
+global playerHealth
+global level
+global xp
+global money
+mana = 0
+playerHealth = 20
+level = 1
+xp = 0
+money = 100
+
 def defaultStats():
-    mana = 0
-    playerHealth = 20
-    level = 1
-    xp = 0
-    money = 100
-    return mana, playerHealth, level, xp, money
+	mana = 0
+	playerHealth = 20
+	level = 1
+	xp = 0
+	money = 100
+	return mana, playerHealth, level, xp, money
 
 def showInventory():
-	Sword, BowAndArrow = store()
+	
+	global Sword
+	global BowAndArrow
+	
 	if BowAndArrow == True:
 		print("Bow & Arrow")
 	if Sword == True:
 		print("Sword")
 
 def showStats():
+	global mana
+	global playerHealth
+	global level
+	global xp
+	global money
 	print(" ")
 	print("Mana:")
 	print(mana)
@@ -36,6 +60,3 @@ def showStats():
 	print(money)
 	print(" ")
 	
-showStats()
-showInventory()
-defaultStats()

@@ -73,13 +73,13 @@ def playerAction():
 								if exitConfirm == "no":
 									print("Will not exit the game.")
 									playerAction()
+							else:
+								if playerInput == "stats":
+									showStats()
+									playerAction()
 								else:
-									if playerInput == "stats":
-										showStats()
-										playerAction()
-									else:
-										print("Invalid command.")
-										playerAction()
+									print("Invalid command.")
+									playerAction()
 	
 	#if monsterX == corNumberX:
 	#	if monsterY == corNumberY:
