@@ -6,8 +6,6 @@ BowAndArrow = False
 #from gameMove import money
 import time
 
-
-
 def store():
 
 	global Sword
@@ -32,12 +30,10 @@ def store():
 		if choice == "bow and arrow":
 			print"You just bought a Bow and Arrow!"
 			BowAndArrow = True
-			return Sword, BowAndArrow
 			
 		if choice == "sword":
 			print"You just bought a Sword!"
 			Sword = True
-			return Sword, BowAndArrow
 				
 		if choice == "nothing":
 			print "Now get out there and hammer those monsters!"
@@ -46,9 +42,20 @@ def store():
 		print "Now get out there and hammer those monsters!"
 		time.sleep(1)
 
-#def storeStats():
-#
-#	global Sword
-#	global BowAndArrow
-#			
-#	return Sword, BowAndArrow
+def storeStats():
+
+	global Sword
+	global BowAndArrow
+	
+	if Sword == True:
+		print"Sword"
+	
+	else:	
+		if BowAndArrow == True:
+			print"BowAndArrow"
+	
+		else:
+			print"You haven't bought anything yet. Go to the Store to buy stuff"
+	
+			
+	return Sword, BowAndArrow
