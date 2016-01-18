@@ -33,9 +33,6 @@ def defaultStats():
 
 def showInventory():
 	
-	#global Sword
-	#global BowAndArrow
-	
 	storeStats()
 	
 def showStats():
