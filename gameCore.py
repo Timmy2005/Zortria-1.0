@@ -18,7 +18,6 @@ from gameMove import monsterMove2
 from Store import store
 from inventory import showInventory
 from inventory import showStats
-import battleEngine
 from battleEngine import battleInput
 corNumberX = 5
 corNumberY = 1
@@ -44,16 +43,32 @@ def playerAction():
 	
 	playerInput = raw_input("> ").lower()
 	if playerInput == "north":
-		corNumberY = corNumberY + 1
-		playerAction()
+		if corNumberY == 10:
+			if corNumberX == 3:
+				print"You need a key to go in there."
+			else:
+				print"You can't go there! Those are the dungeon walls."
+				time.sleep(1)
+				playerAction()
+		else:	
+			corNumberY = corNumberY + 1
+			playerAction()
 	else:
 		if playerInput == "south":
-			corNumberY = corNumberY - 1
-			playerAction()
+			if corNumberY == 0:
+				print"Don't be silly! You still have a princess to save!"
+				time.sleep(1)
+				playerAction()
+			else:
+				corNumberY = corNumberY - 1
+				playerAction()
 		else:
 			if playerInput == "east":
-				corNumberX = corNumberX + 1
-				playerAction()
+				if corNumberX == 10:
+					print"Whoa! You almost fell of the cliff"
+				else:
+					corNumberX = corNumberX + 1
+					playerAction()
 			else:
 				if playerInput == "west":
 					corNumberX = corNumberX - 1
@@ -90,8 +105,11 @@ def playerAction():
 	#	if monsterY == corNumberY:
 	#		battleInput()
     # And I'll let Timmy2005 finish the code.
-
-
+def corNumber():
+	global corNumberX
+	global corNumberY
+	
+	return corNumberX, corNumberY
 
 gameStart()
 corNumberX = 5

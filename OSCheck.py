@@ -23,3 +23,4 @@ def computerCheck():
     print (" ")
     print (" ")
     print (" ")
+computerCheck()
