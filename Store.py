@@ -41,21 +41,3 @@ def store():
 	if buy == "no":
 		print "Now get out there and hammer those monsters!"
 		time.sleep(1)
-
-def storeStats():
-
-	global Sword
-	global BowAndArrow
-	
-	if Sword == True:
-		print"Sword"
-	
-	else:	
-		if BowAndArrow == True:
-			print"BowAndArrow"
-	
-		else:
-			print"You haven't bought anything yet. Go to the Store to buy stuff"
-	
-			
-	return Sword, BowAndArrow
