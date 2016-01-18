@@ -42,3 +42,4 @@ def battleInput():
 		beastHealth = beastHealth - attackDamage
 		beastHealth2 = str(beastHealth)
 		print("You hit him! Now the beast has " + beastHealth2 + " health now.")
+		

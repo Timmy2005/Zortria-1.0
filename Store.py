@@ -12,14 +12,14 @@ def store():
 	global BowAndArrow
 				
 	print"Store"
-	time.sleep(1.5)
+	time.sleep(0.5)
 	print""
 	if Sword == False:
 		print"Sword -- $100"
-		time.sleep(1.5)
+		time.sleep(0.5)
 	if BowAndArrow == False:
 		print"Bow an Arrow -- $150"
-		time.sleep(1.5)
+		time.sleep(0.5)
 		
 	print""
 	print("Do you want to buy anything today?('yes' or 'no')  ").lower()

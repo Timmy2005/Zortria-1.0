@@ -14,6 +14,7 @@ import inventory
 import Store
 import gameMove
 from gameMove import monsterMove
+from gameMove import monsterMove2
 from Store import store
 from inventory import showInventory
 from inventory import showStats
@@ -28,9 +29,13 @@ def playerAction():
 	global corNumberY
 
 	monsterX, monsterY = monsterMove()
-	monsterMove()
+	monsterX2, monsterY2 = monsterMove2()
 	if monsterX == corNumberX:
 		if monsterY == corNumberY:
+			battleInput()
+			
+	if monsterY2 == corNumberY:
+		if monsterX2 == corNumberX:
 			battleInput()
 			
 	corNumX = str(corNumberX)
