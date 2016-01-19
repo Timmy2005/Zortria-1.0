@@ -19,14 +19,14 @@ def monsterMove():
 	global monsterX
 	global monsterY
 	
-	monsterMove = random.randint(1,4)
-	if monsterMove == 1:
+	monsterMoveDir = random.randint(1,4)
+	if monsterMoveDir == 1:
 		monsterX = monsterX + 1
-	if monsterMove == 2:
+	if monsterMoveDir == 2:
 		monsterX = monsterX - 1
-	if monsterMove == 3:
+	if monsterMoveDir == 3:
 		monsterY = monsterY + 1
-	if monsterMove == 4:
+	if monsterMoveDir == 4:
 		monsterY = monsterY - 1
 		
 	return monsterX, monsterY
@@ -35,14 +35,14 @@ def monsterMove2():
 	global monsterX2
 	global monsterY2
 	
-	monsterMove = random.randint(1,4)
-	if monsterMove == 1:
+	monsterMoveDir2 = random.randint(1,4)
+	if monsterMoveDir2 == 1:
 		monsterX2 = monsterX2 + 1
-	if monsterMove == 2:
+	if monsterMoveDir2 == 2:
 		monsterX2 = monsterX2 - 1
-	if monsterMove == 3:
+	if monsterMoveDir2 == 3:
 		monsterY2 = monsterY2 + 1
-	if monsterMove == 4:
+	if monsterMoveDir2 == 4:
 		monsterY2 = monsterY2 - 1
 		
 	return monsterX2, monsterY2

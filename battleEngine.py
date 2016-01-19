@@ -2,19 +2,19 @@ global beastHealth
 global attackOption
 global runOption
 global playerHealth
-global corNumberY
-global corNumberX
+#global corNumberY
+#global corNumberX
 
 
 import random
 import inventory
 from inventory import defaultStats
-from gameCore import corNumber
+#from gameCore import corNumber
 beastHealth = 5
 attackOption = "attack"
 runOption = "run"
-mana, playerHealth, level, xp, money = defaultStats()
-corNumberY, corNumberX = corNumber()
+mana, playerHealth, level, xp = defaultStats()
+#corNumberY, corNumberX = corNumber()
 
 def battleInput():
 	
@@ -22,8 +22,9 @@ def battleInput():
 	global attackOption
 	global playerHealth
 	global runOption
-	global corNumberX
-	global corNumberY
+	global input1
+	#global corNumberX
+	#global corNumberY
 	
 	print ("The wild beast has appeared!")
 	print ("Choices: attack, run")
@@ -35,6 +36,8 @@ def battleInput():
 		if runChance == 4:
 			print("You got away!")
 			
+		
+			
 		else:
 			print"Oh no! The beast caught you!"
 			getAway = random.randint(0, 5)
@@ -43,43 +46,25 @@ def battleInput():
 				print"But you got away"
 				playerHealth = playerHealth - 3
 				print(playerHealth)
-				direction = random.randint(0, 4)
-				if directoin == 1:
-					if corNumberY == 10:
-						corNumberY = corNumberY - 1
-					else:
-						corNumberY = corNumberY + 1 
-				else:
-					if direction == 2:
-						if corNumberY == 0:
-							corNumberY = corNumberY + 1
-						else:
-							corNumberY = corNumberY - 1
-					else:
-						if direction == 3:
-							if corNumberX == 10:
-								corNumberX = corNumberX - 1
-							else:
-								corNumberX = corNumberX + 1
-						else:
-							if direction == 4:
-								if corNumberX == 0:
-									corNumberX = corNumberX + 1
-								else:
-									corNumberX = corNumberX - 1
-			else:
+
+			else:	
 				playerHealth = 0
 
 
 	if input1 == attackOption:
 		critHitChance = random.randint(0, 10)
 		attackDamage = 1
-		if critHitChance >= 9:
+		if critHitChance >= 7:
 			print"Lucky hit!"
 			attackDamage = attackDamage + 1
-			
-			
+				
 		beastHealth = beastHealth - attackDamage
 		beastHealth2 = str(beastHealth)
-		print("You hit him! Now the beast has " + beastHealth + " health now.")
-		
+		print("You hit him! Now the beast has " + beastHealth2 + " health now.")
+
+def option():
+	global runOption
+	global attackOption
+	global input1
+	
+	return runOption, attackOption, input1
