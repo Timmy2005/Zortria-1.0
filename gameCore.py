@@ -27,6 +27,9 @@ from battleEngine import option
 corNumberX = 5
 corNumberY = 1
 
+def playerAction():
+	global corNumberX
+	global corNumberY
 
 # def corNumber(): # TIP: 'cor' is short for 'coordinates'.
 #         global corNumberX

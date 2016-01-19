@@ -5,7 +5,8 @@
 # These are the stats you start with at the beginning of the game.
 import Store
 from Store import storeStats
-from Store import moneyValue
+#global Sword
+#global BowAndArrow
 global mana
 global playerHealth
 global level
@@ -15,9 +16,7 @@ mana = 0
 playerHealth = 20
 level = 1
 xp = 0
-money = moneyValue()
-maxplayerHealth = 20
-
+money = 100
 
 def defaultStats():
 	global mana
@@ -25,37 +24,15 @@ def defaultStats():
 	global level
 	global xp
 	global money
-	global maxplayerHealth
+	mana = 0
+	playerHealth = 20
+	level = 1
+	xp = 0
 	return mana, playerHealth, level, xp
 
-
-#def levelUp():                 NOTE: THIS IS A CONCEPT ONLY.
-#        if level = 1:
-#                if xp = 200:
-#                        level = level + 1
-#        if level = 2:
-#                if xp = 400:
-#                        level = level + 1
-#        if level = 3:
-#                if xp = 800:
-#                        level = level + 1
-def storeStats():
-
-	global Sword
-	global BowAndArrow
+def showInventory():
 	
-	if Sword == True:
-		print"Sword"
-	
-	else:	
-		if BowAndArrow == True:
-			print"BowAndArrow"
-	
-		else:
-			print"You haven't bought anything yet. Go to the Store to buy stuff"
-	
-			
-	return Sword, BowAndArrow
+	storeStats()
 	
 def showStats():
 	global mana
@@ -79,7 +56,4 @@ def showStats():
 	print("Money:")
 	print(money)
 	print(" ")
-
-def showInventory():
-	showStats()
-	storeStats()
+	

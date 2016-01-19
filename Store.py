@@ -23,7 +23,8 @@ def store():
 		print"Bow an Arrow -- $150"
 		time.sleep(1)
 	
-	print("You have $" + money)
+	moneyStr = str(money)
+	print("You have $" + moneyStr)
 	time.sleep(1.5)	
 	print""
 	print("Do you want to buy anything today?('yes' or 'no')  ").lower()
@@ -32,13 +33,19 @@ def store():
 		print("What do you want to buy?('Sword','Bow and Arrow' or 'nothing')")
 		choice = raw_input("> ").lower()
 		if choice == "bow and arrow":
-			print"You just bought a Bow and Arrow!"
-			BowAndArrow = True
-			
+			if money >= 150:
+				print"You just bought a Bow and Arrow!"
+				BowAndArrow = True
+				money = money - 150
+			else:
+				print("You don't have enough money.")
 		if choice == "sword":
-			print"You just bought a Sword!"
-			Sword = True
-				
+			if money >= 100:
+				print"You just bought a Sword!"
+				Sword = True
+				money = money - 100
+			else:
+				print"You don't have enough money."	
 		if choice == "nothing":
 			print "Now get out there and hammer those monsters!"
 			time.sleep(1)
