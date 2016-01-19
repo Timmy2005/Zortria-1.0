@@ -1,10 +1,13 @@
+# This game was made by Timmy2005 and HalfKelp.
+#
+# FOR COLLABORATORS:
 # This is the format for inputting commands:
 #
 # print("Question here. (ex. What is your name?)")
 # <variable> = raw_input("> ")
 #
 # Do it EXACTLY as shown above. Copy and paste if you need to.
-# You also need 
+
 global corNumberX
 global corNumberY
 
@@ -24,11 +27,18 @@ from battleEngine import option
 corNumberX = 5
 corNumberY = 1
 
-def playerAction():
-	# This is the 'playerAction' function. It is used for typing commands
-	global corNumberX
-	global corNumberY
 
+# def corNumber(): # TIP: 'cor' is short for 'coordinates'.
+#         global corNumberX
+#         global corNumberY
+#         corNumberX = 5
+#         corNumberY = 1
+#         return corNumberX, corNumberY
+# #
+# #def monsterEncounter(): # I think this would be better than monsterMove for a few reasons. Just an idea, though.
+#         monsterChance = random.randint(1, 5)
+#         if monsterChance == 5:
+#                 battleInput()
 	monsterX, monsterY = monsterMove()
 	monsterX2, monsterY2 = monsterMove2()
 	if corNumberX == monsterX or corNumberX == monsterX2:
@@ -120,7 +130,8 @@ def playerAction():
 								if exitConfirm == "yes":
 									print("Exiting the game...")
 									time.sleep(1)
-									print("Exited.")
+									print("GAME OVER -- I don't see why they used you to save the princess.")
+									time.sleep(3)
 									exit()
 								if exitConfirm == "no":
 									print("Will not exit the game.")
@@ -137,15 +148,9 @@ def playerAction():
 	#	if monsterY == corNumberY:
 	#		battleInput()
     # And I'll let Timmy2005 finish the code.
-def corNumber():
-	global corNumberX
-	global corNumberY
-	
-	return corNumberX, corNumberY
 
 gameStart()
 corNumberX = 5
 corNumberY = 1
 #This is from 'gameMove.py'
-print("Input Command.")
 playerAction()

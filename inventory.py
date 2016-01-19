@@ -16,6 +16,7 @@ playerHealth = 20
 level = 1
 xp = 0
 money = moneyValue()
+maxplayerHealth = 20
 
 
 def defaultStats():
@@ -24,15 +25,37 @@ def defaultStats():
 	global level
 	global xp
 	global money
-	mana = 0
-	playerHealth = 20
-	level = 1
-	xp = 0
+	global maxplayerHealth
 	return mana, playerHealth, level, xp
 
-def showInventory():
+
+#def levelUp():                 NOTE: THIS IS A CONCEPT ONLY.
+#        if level = 1:
+#                if xp = 200:
+#                        level = level + 1
+#        if level = 2:
+#                if xp = 400:
+#                        level = level + 1
+#        if level = 3:
+#                if xp = 800:
+#                        level = level + 1
+def storeStats():
+
+	global Sword
+	global BowAndArrow
 	
-	storeStats()
+	if Sword == True:
+		print"Sword"
+	
+	else:	
+		if BowAndArrow == True:
+			print"BowAndArrow"
+	
+		else:
+			print"You haven't bought anything yet. Go to the Store to buy stuff"
+	
+			
+	return Sword, BowAndArrow
 	
 def showStats():
 	global mana
@@ -56,4 +79,7 @@ def showStats():
 	print("Money:")
 	print(money)
 	print(" ")
-	
+
+def showInventory():
+	showStats()
+	storeStats()

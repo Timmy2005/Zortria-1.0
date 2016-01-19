@@ -2,19 +2,15 @@ global beastHealth
 global attackOption
 global runOption
 global playerHealth
-#global corNumberY
-#global corNumberX
-
 
 import random
 import inventory
 from inventory import defaultStats
-#from gameCore import corNumber
-beastHealth = 5
+beastHealthChoise = random.randint(7, 16)
+beastHealth = beastHealthChoise
 attackOption = "attack"
 runOption = "run"
 mana, playerHealth, level, xp = defaultStats()
-#corNumberY, corNumberX = corNumber()
 
 def battleInput():
 	
@@ -23,11 +19,13 @@ def battleInput():
 	global playerHealth
 	global runOption
 	global input1
-	#global corNumberX
-	#global corNumberY
 	
-	print ("The wild beast has appeared!")
-	print ("Choices: attack, run")
+	print("The wild beast has appeared!")
+	print("Your HP:")
+	print(playerHealth)
+	print("Beast HP:")
+	print(beastHealth)
+	print("Choices: attack, run")
 	input1 = raw_input("What do you want to do?  ").lower()
 	if input1 == runOption:
 		runChance = random.randint(0, 5)
@@ -50,17 +48,18 @@ def battleInput():
 			else:	
 				playerHealth = 0
 
-
 	if input1 == attackOption:
 		critHitChance = random.randint(0, 10)
 		attackDamage = 1
 		if critHitChance >= 7:
-			print"Lucky hit!"
+			print"CRITICAL HIT!"
 			attackDamage = attackDamage + 1
 				
 		beastHealth = beastHealth - attackDamage
-		beastHealth2 = str(beastHealth)
-		print("You hit him! Now the beast has " + beastHealth2 + " health now.")
+		attackDamageStr = str(attackDamage)
+		beastHealthStr = str(beastHealth)
+		print("Beast took " + attackDamageStr + " damage.")
+		print("Beast has " + beastHealthStr + " HP.")
 
 def option():
 	global runOption
