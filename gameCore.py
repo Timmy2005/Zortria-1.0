@@ -43,9 +43,9 @@ def playerAction():
 #         if monsterChance == 5:
 #                 battleInput()
 	monsterX, monsterY = monsterMove()
-	monsterX2, monsterY2 = monsterMove2()
-	if corNumberX == monsterX or corNumberX == monsterX2:
-		if corNumberY == monsterY or corNumberY == monsterY2:
+	if corNumberX == monsterX:
+		if corNumberY == monsterY:
+			print"The wild beast has appeared!"
 			battleInput()
 			runOption, attackOption, input1 = option()
 			if input1 == runOption:

@@ -44,6 +44,7 @@ def store():
 				print"You just bought a Sword!"
 				Sword = True
 				money = money - 100
+				print"hi"
 			else:
 				print"You don't have enough money."	
 		if choice == "nothing":

@@ -19,8 +19,7 @@ def battleInput():
 	global playerHealth
 	global runOption
 	global input1
-	
-	print("The wild beast has appeared!")
+
 	print("Your HP:")
 	print(playerHealth)
 	print("Beast HP:")
@@ -60,7 +59,8 @@ def battleInput():
 		beastHealthStr = str(beastHealth)
 		print("Beast took " + attackDamageStr + " damage.")
 		print("Beast has " + beastHealthStr + " HP.")
-
+	if beastHealth >= 1:
+		battleInput()
 def option():
 	global runOption
 	global attackOption

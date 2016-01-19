@@ -5,6 +5,7 @@
 # These are the stats you start with at the beginning of the game.
 import Store
 from Store import storeStats
+from Store import moneyValue
 #global Sword
 #global BowAndArrow
 global mana
@@ -16,14 +17,13 @@ mana = 0
 playerHealth = 20
 level = 1
 xp = 0
-money = 100
+money = moneyValue()
 
 def defaultStats():
 	global mana
 	global playerHealth
 	global level
 	global xp
-	global money
 	mana = 0
 	playerHealth = 20
 	level = 1
@@ -40,6 +40,7 @@ def showStats():
 	global level
 	global xp
 	global money
+	money = moneyValue()
 	print(" ")
 	print("Mana:")
 	print(mana)
