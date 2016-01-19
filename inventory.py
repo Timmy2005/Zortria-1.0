@@ -13,7 +13,6 @@ global xp
 global money
 mana = 0
 playerHealth = 20
-playerHealthStr = str(playerHealth)
 maxPlayerHealth = 20
 money = 100
 

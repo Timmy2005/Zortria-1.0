@@ -22,6 +22,7 @@ from Store import store
 from inventory import showInventory
 from inventory import showStats
 from battleEngine import battleInput
+import random
 
 def corNumber(): # TIP: 'cor' is short for 'coordinates'.
         global corNumberX

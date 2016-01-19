@@ -23,9 +23,7 @@ def decideBeastHealth():
         global maxBeastHealthStr
         
         beastHealth = random.randint(7, 16)
-        beastHealthStr = str(beastHealth)
         maxBeastHealth = beastHealth
-        maxBeastHealthStr = str(maxBeastHealth)
 
 def battleRun():
         global battleRunning
@@ -65,10 +63,10 @@ def battleInput():
                 if battleInput == attackOption:
                         critHitChance = random.randint(0, 10)
                         attackDamage = 1
-                        attackDamageStr = str(attackDamage)
                         beastHealth = beastHealth - attackDamage
-                        beastHealthStr = str(beastHealth)
-                        print("Beast took " + attackDamageStr + " damage.")
+                        print("Beast took")
+                        print(attackDamage)
+                        print("damage.")
                         if critHitChance >= 9:
                                 print"CRITICAL HIT!"
                                 attackDamage = attackDamage + 1
