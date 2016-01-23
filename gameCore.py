@@ -23,8 +23,7 @@ from gameMove import monsterMove2
 from Store import store
 from inventory import showInventory
 from inventory import showStats
-from battleEngine import battleInput
-from battleEngine import option
+from battleEngine import *
 corNumberX = 5
 corNumberY = 1
 
@@ -37,9 +36,9 @@ corNumberY = 1
 
 def monsterEncounter(): # I think this would be better than monsterMove for a few reasons. Just an idea, though.
         monsterChance = random.randint(1, 5)
-        if monsterChance == 5:
+        if monsterChance >= 4:
+                monsterRandomize()
                 battleInput()
-                playerInput()
 
 #        monsterX, monsterY = monsterMove() # This is not gonna work, Timmy.
 #        if corNumberX == monsterX:
@@ -88,9 +87,9 @@ def playerAction():
                                 print"You can't go there! Those are the dungeon walls."
                                 time.sleep(1.5)
                                 playerAction()
-                        corNumberY = corNumberY + 1
-                        monsterEncounter()
-                        playerAction()
+                corNumberY = corNumberY + 1
+                monsterEncounter()
+                playerAction()
         elif playerInput == "south": # Yeah! Go 'elif'!
                 if corNumberY == 0:
                         print"Don't be silly! You still have a princess to save!"
