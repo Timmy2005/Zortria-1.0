@@ -5,6 +5,8 @@
 
 import os
 import platform
+import time
+from time import ctime
 
 OS = platform.system()
 OSRelease = platform.release()
@@ -13,6 +15,7 @@ def computerCheck():
     print ("OS:                     " + OS)
     print ("OS Release:             " + OSRelease)
     print ("OS Name:                " + OSName)
+    print ("Date & Time:            " + ctime())
     print (" ")
     print (" ")
     print (" ")
@@ -23,4 +26,5 @@ def computerCheck():
     print (" ")
     print (" ")
     print (" ")
+
 computerCheck()

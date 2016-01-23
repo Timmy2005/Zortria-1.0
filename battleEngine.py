@@ -5,65 +5,92 @@ global playerHealth
 
 import random
 import inventory
+import time
 from inventory import defaultStats
-beastHealthChoise = random.randint(7, 16)
-beastHealth = beastHealthChoise
 attackOption = "attack"
 runOption = "run"
 mana, playerHealth, level, xp = defaultStats()
 
+def monsterRandomize():
+
+        global monsterName
+        global monsterNameChoice
+        global monsterDamage
+        global monsterDamageChoice
+        global monsterHealth
+        global monsterHealthChoice
+
+        monsterHealthChoice = random.randint(7, 16)
+        monsterHealth = monsterHealthChoice
+        monsterNameChoice = random.randint(1, 3)
+        if monsterNameChoice == 1:
+                monsterName = "Beast"
+        elif monsterNameChoice == 2:
+                monsterName = "Spider"
+        elif monsterNameChoice == 3:
+                monsterName = "Wolf"
+        monsterDamageChoice = random.randint(1, 10)
+        if monsterDamageChoice <= 10:
+                monsterDamage = 1
+        elif monsterDamageChoice == 10:
+                monsterDamage = 2
+
 def battleInput():
-	
-	global beastHealth
-	global attackOption
-	global playerHealth
-	global runOption
-	global input1
+        
+        global monsterHealth
+        global attackOption
+        global playerHealth
+        global runOption
+        global battleChoice # Renamed 'input1' to 'battleChoice' just to prevent confusion.
 
-	print("Your HP:")
-	print(playerHealth)
-	print("Beast HP:")
-	print(beastHealth)
-	print("Choices: attack, run")
-	input1 = raw_input("What do you want to do?  ").lower()
-	if input1 == runOption:
-		runChance = random.randint(0, 5)
-		if runChance == 5:
-			print("You got away!")
-		if runChance == 4:
-			print("You got away!")
-			
-		
-			
-		else:
-			print"Oh no! The beast caught you!"
-			getAway = random.randint(0, 5)
-			if getAway >= 3:
-				print"The beast hit you!"
-				print"But you got away"
-				playerHealth = playerHealth - 3
-				print(playerHealth)
+        print(" ")
+        print("Your HP:")
+        print(playerHealth)
+        print(monsterName + " HP:")
+        print(monsterHealth)
+        print("Choices: attack, run")
+        
+        print("What do you want to do?  ")
+        battleChoice = raw_input("> ").lower()
+        if battleChoice == runOption:
+                runChance = random.randint(0, 5)
+                if runChance >= 3:
+                        print("You got away!")
+                else:
+                        print("Oh no! The beast caught you!")
 
-			else:	
-				playerHealth = 0
-
-	if input1 == attackOption:
-		critHitChance = random.randint(0, 10)
-		attackDamage = 1
-		if critHitChance >= 7:
-			print"CRITICAL HIT!"
-			attackDamage = attackDamage + 1
-				
-		beastHealth = beastHealth - attackDamage
-		attackDamageStr = str(attackDamage)
-		beastHealthStr = str(beastHealth)
-		print("Beast took " + attackDamageStr + " damage.")
-		print("Beast has " + beastHealthStr + " HP.")
-	if beastHealth >= 1:
-		battleInput()
+        if battleChoice == attackOption:
+                critHitChance = random.randint(0, 10)
+                doubleDamage = random.randint(0, 100) # This is just something silly I added.
+                attackDamage = 1
+                if critHitChance >= 9: # Critical hits are supposed to be uncommon.
+                        print("CRITICAL HIT! +1 Damage.")
+                        attackDamage = attackDamage + 1
+                if doubleDamage == 100:
+                        print("DOUBLE DAMAGE!")
+                        attackDamage = attackDamage * 2
+                monsterHealth = monsterHealth - attackDamage
+                print(" ")
+                print(monsterName + " took")
+                print(attackDamage)
+                print("damage.")
+                time.sleep(1)
+                
+                if monsterHealth >= 1:
+                        battleInput()
+                else:
+                        print("You defeated the " + monsterName + "!")
+                        time.sleep(1)
+                        print(" ")
+        else:
+                print("Invalid command.")
+                time.sleep(1)
+                print(" ")
+                battleInput()
+        
 def option():
-	global runOption
-	global attackOption
-	global input1
-	
-	return runOption, attackOption, input1
+        global runOption
+        global attackOption
+        global battleChoice
+        
+        return runOption, attackOption, battleChoice
