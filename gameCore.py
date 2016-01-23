@@ -89,63 +89,59 @@ def playerAction():
 				print"You can't go there! Those are the dungeon walls."
 				time.sleep(1.5)
 				playerAction()
-		else:	
 			corNumberY = corNumberY + 1
 			playerAction()
-	else:
-		if playerInput == "south":
-			if corNumberY == 0:
-				print"Don't be silly! You still have a princess to save!"
-				time.sleep(1.5)
-				playerAction()
-			else:
-				corNumberY = corNumberY - 1
-				playerAction()
+	elif playerInput == "south": # Yeah! Go 'elif'!
+		if corNumberY == 0:
+			print"Don't be silly! You still have a princess to save!"
+			time.sleep(1.5)
+			playerAction()
 		else:
-			if playerInput == "east":
-				if corNumberX == 10:
-					print"Whoa! You almost fell of the cliff!"
-					time.sleep(1.5)
-					playerAction()
-				else:
-					corNumberX = corNumberX + 1
-					playerAction()
-			else:
-				if playerInput == "west":
-					if corNumberX == 0:
-						print"You don't want to go in there! That forest doesn't have anything in it"
-						time.sleep(3)
-						playerAction()
-					corNumberX = corNumberX - 1
-					playerAction()
-				else:
-					if playerInput == "inventory":
-						showInventory() # This function is defined in the 'inventory.py' file.
-						playerAction()
-					else:
-						if playerInput == "store":
-							store()
-							playerAction()
-						else:
-							if playerInput == "exitgame":
-								print("Are you sure you want to quit? ('yes' or 'no')")
-								exitConfirm = raw_input("> ")
-								if exitConfirm == "yes":
-									print("Exiting the game...")
-									time.sleep(1)
-									print("GAME OVER -- I don't see why they used you to save the princess.")
-									time.sleep(3)
-									exit()
-								if exitConfirm == "no":
-									print("Will not exit the game.")
-									playerAction()
-							else:
-								if playerInput == "stats":
-									showStats()
-									playerAction()
-								else:
-									print("Invalid command.")
-									playerAction()
+			corNumberY = corNumberY - 1
+			playerAction()
+	elif playerInput == "east":
+		if corNumberX == 10:
+			print"Whoa! You almost fell of the cliff!"
+			time.sleep(1.5)
+			playerAction()
+		else:
+                        corNumberX = corNumberX + 1
+			playerAction()
+	elif playerInput == "west":
+		if corNumberX == 0:
+			print"You don't want to go in there! That forest doesn't have anything in it"
+			time.sleep(3)
+			playerAction()
+		corNumberX = corNumberX - 1
+		playerAction()
+	elif playerInput == "inventory":
+		showInventory() # This function is defined in the 'inventory.py' file.
+		playerAction()
+	elif playerInput == "store":
+		store()
+		playerAction()
+	elif playerInput == "exitgame":
+		print("Are you sure you want to quit? ('yes' or 'no')")
+		exitConfirm = raw_input("> ")
+		if exitConfirm == "yes":
+			print("Exiting the game...")
+			time.sleep(1)
+			print("GAME OVER -- I don't see why they used you to save the princess.")
+			time.sleep(3)
+			exit()
+		elif exitConfirm == "no":
+			print("Will not exit the game.")
+			playerAction()
+                else:
+                        print("Invalid answer.")
+                        print("Will not exit the game.")
+                        playerAction()
+	elif playerInput == "stats":
+		showStats()
+		playerAction()
+	else:
+                print("Invalid command.")
+		playerAction()
 	
 	#if monsterX == corNumberX:
 	#	if monsterY == corNumberY:
