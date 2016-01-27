@@ -15,8 +15,6 @@ global xp
 global money
 mana = 0
 playerHealth = 20
-level = 1
-xp = 0
 money = moneyValue()
 
 def defaultStats():
@@ -52,7 +50,7 @@ def showStats():
 	print(level)
 	print(" ")
 	print("XP:")
-	print(xp)
+	print(XP)
 	print(" ")
 	print("Money:")
 	print(money)

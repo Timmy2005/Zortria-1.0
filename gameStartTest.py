@@ -2,6 +2,33 @@
 # Written by HalfKelp.
 import time
 
+def inputPlayerName():
+    global playerName
+    
+    playerName = raw_input("> ")
+    if playerName == "HalfKelp" or playerName == "Timmy2005":
+        print ("'Hello " + playerName + ". You must be the game creator!'")
+    if playerName == "Cave Johnson":
+        print("'Shouldn't you be making lemon grenades?'")
+    if playerName == "Gabe Newell":
+        print("'STEAM SALES!!!'")
+    if playerName == "GLaDOS":
+        print("'The cake is a lie!'")
+    if playerName == "Pewdiepie":
+        print("'BRO FIST!'")
+    if playerName == "Fart":
+        print("'Uh oh, a 5-year-old is playing the game!'")
+    if playerName == "No Name":
+        print("'No Name? I'll just call you Bob.'")
+        playerName = "Bob"
+    if playerName == "MLG PRO":
+        print("'DORITOS MTN DEW SWAG YOLO ILLUMINATI 360-NOSCOPE.'")
+    if playerName == "Stanford Pines":
+        print("'IT'S THE AUTHOR OF THE JOURNALS!'")
+    if playerName == "Bill Cipher":
+        print("'THE UNIVERSE IS AN ILLUSION!'")
+    else:
+        print("'" + playerName + ". What a wonderful name!'")
 
 def gameStart():
     print("'Why, hello there!'")
@@ -9,13 +36,8 @@ def gameStart():
     print("'It looks like you're a newcomer.'")
     time.sleep(2)
     print("'Now, tell me young one, what is your name?'")
-    playerName = raw_input("> ")
-    if playerName == "HalfKelp" or playerName == "Timmy2005":
-        print ("'Hello " + playerName + ". You must be the game creator!'")
-        time.sleep(2)
-    else:
-        print("'" + playerName + ". What a wonderful name!'")
-        time.sleep(2)
+    inputPlayerName()
+    time.sleep(1)
     print(" ")
     print("'" + playerName + ", your journey is about to begin!'")
     time.sleep(3)

@@ -61,19 +61,29 @@ def battleInput():
 
         if battleChoice == attackOption:
                 critHitChance = random.randint(0, 10)
-                doubleDamage = random.randint(0, 100) # This is just something silly I added.
+                doubleDamage = random.randint(0, 100) # This is just something silly I added. Move along...
+                missHitChance = random.randint(0, 10)
                 attackDamage = 1
-                if critHitChance >= 9: # Critical hits are supposed to be uncommon.
-                        print("CRITICAL HIT! +1 Damage.")
+                if critHitChance == 10: # Critical hits are supposed to be uncommon.
                         attackDamage = attackDamage + 1
                 if doubleDamage == 100:
-                        print("DOUBLE DAMAGE!")
                         attackDamage = attackDamage * 2
+                if missHitChance == 10:
+                        print(monsterName + " dodged the attack.")
+                        attackDamage = 0
+                
                 monsterHealth = monsterHealth - attackDamage
-                print(" ")
-                print(monsterName + " took")
-                print(attackDamage)
-                print("damage.")
+                if missHitChance < 10:
+                        print(" ")
+                        print(monsterName + " took")
+                        print(attackDamage)
+                        print("damage.")
+                if critHitChance == 10:
+                        time.sleep(1)
+                        print("CRITICAL HIT! +1 Damage.")
+                if doubleDamage == 100:
+                        time.sleep(1)
+                        print("DOUBLE DAMAGE! x2 Damage.")
                 time.sleep(1)
                 
                 if monsterHealth >= 1:
@@ -81,7 +91,6 @@ def battleInput():
                 else:
                         print("You defeated the " + monsterName + "!")
                         time.sleep(1)
-                        print(" ")
         else:
                 print("Invalid command.")
                 time.sleep(1)
