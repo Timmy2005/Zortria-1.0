@@ -10,26 +10,28 @@
 
 global corNumberX
 global corNumberY
+global witchX
+global witchY
 
 import random
 import time
 from gameStartTest import gameStart
-import inventory
-import Store
-import gameMove
 from gameMove import monsterMove
-from gameMove import monsterMove2
 from Store import store
 from inventory import showInventory
 from inventory import showStats
 from battleEngine import battleInput
-from battleEngine import option
+
 corNumberX = 5
 corNumberY = 1
+witchX = 2#random.randint(0,10)
+witchY = 2#random.randint(0,10)
 
 def playerAction():
 	global corNumberX
 	global corNumberY
+	global witchY
+	global witchX
 
 # def corNumber(): # TIP: 'cor' is short for 'coordinates'.
 #         global corNumberX
@@ -37,7 +39,7 @@ def playerAction():
 #         corNumberX = 5
 #         corNumberY = 1
 #         return corNumberX, corNumberY
-# #
+#
 # #def monsterEncounter(): # I think this would be better than monsterMove for a few reasons. Just an idea, though.
 #         monsterChance = random.randint(1, 5)
 #         if monsterChance == 5:
@@ -73,11 +75,11 @@ def playerAction():
 							else:
 								corNumberX = corNumberX - 1 
 		playerAction()
-			
-	corNumX = str(corNumberX)
-	corNumY = str(corNumberY)
-	print("You are at X:" + corNumX + " Y:" + corNumY)
-	
+
+	if corNumberX == witchX:
+	 	if corNumberY == witchY:
+	 		print"pass"
+
 	playerInput = raw_input("> ").lower()
 	if playerInput == "north":
 		if corNumberY == 10:
@@ -89,7 +91,7 @@ def playerAction():
 				print"You can't go there! Those are the dungeon walls."
 				time.sleep(1.5)
 				playerAction()
-		else:	
+		else:
 			corNumberY = corNumberY + 1
 			playerAction()
 	else:
@@ -105,7 +107,7 @@ def playerAction():
 			if playerInput == "east":
 				if corNumberX == 10:
 					print"Whoa! You almost fell of the cliff!"
-					time.sleep(1.5)
+					time.sleep(1)
 					playerAction()
 				else:
 					corNumberX = corNumberX + 1
@@ -116,8 +118,9 @@ def playerAction():
 						print"You don't want to go in there! That forest doesn't have anything in it"
 						time.sleep(3)
 						playerAction()
-					corNumberX = corNumberX - 1
-					playerAction()
+					else:
+						corNumberX = corNumberX - 1
+						playerAction()
 				else:
 					if playerInput == "inventory":
 						showInventory() # This function is defined in the 'inventory.py' file.
@@ -144,16 +147,26 @@ def playerAction():
 									showStats()
 									playerAction()
 								else:
-									print("Invalid command.")
-									playerAction()
-	
-	#if monsterX == corNumberX:
-	#	if monsterY == corNumberY:
-	#		battleInput()
-    # And I'll let Timmy2005 finish the code.
+									if playerInput == "help":
+										print"Navigate with north, south, east and west."
+										time.sleep(1.5)
+										print"You can look at your inventory or stats by typing 'inventory' or 'stats'"
+										time.sleep(1.5)
+										print"Go to the store with 'store'"
+										time.sleep(1.5)
+										print""
+										print"Input Command"
+										playerAction()
+									else:
+										print("Invalid command.")
+										playerAction()
+
+# And I'll let Timmy2005 finish the code.
 
 gameStart()
 corNumberX = 5
 corNumberY = 1
+print"Input Command"
+print"Type 'help' for help"
 #This is from 'gameMove.py'
 playerAction()
