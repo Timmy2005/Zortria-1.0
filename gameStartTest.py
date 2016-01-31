@@ -37,7 +37,7 @@ def gameStart():
     time.sleep(2)
     print("'Now, tell me young one, what is your name?'")
     inputPlayerName()
-    time.sleep(1)
+    time.sleep(2)
     print(" ")
     print("'" + playerName + ", your journey is about to begin!'")
     time.sleep(3)

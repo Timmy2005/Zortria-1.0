@@ -10,8 +10,6 @@
 
 global corNumberX
 global corNumberY
-
-import OSCheck
 import random
 import time
 from gameStartTest import gameStart
