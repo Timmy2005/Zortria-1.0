@@ -29,7 +29,7 @@ def moneyMaker():
 	
 	a = raw_input()
 	if a == "1":
-		if money >= 10 + extra1:
+		if money >= 10 + extra1: # Level is affected by XP, not money.
 			lvl = lvl + 0.05
 			moneyTotal1 = moneyTotal1 + 10
 			moneyTotal1 = moneyTotal1 + extra1
