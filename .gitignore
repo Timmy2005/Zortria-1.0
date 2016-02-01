@@ -15,6 +15,10 @@ __pycache__
 .DS_Store
 .DS_Store?
 ._*
+
+# computerInfoDump.txt
+computerInfoDump.txt
+
 .Spotlight-V100
 .Trashes
 ehthumbs.db
