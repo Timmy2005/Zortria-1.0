@@ -37,13 +37,17 @@ def monsterRandomizeDev(): # This is for returning the variables.
 
         monsterHealthChoice = random.randint(7, 16)
         monsterHealth = monsterHealthChoice
-        monsterNameChoice = random.randint(1, 3)
+        monsterNameChoice = random.randint(1, 5)
         if monsterNameChoice == 1:
                 monsterName = "Beast"
         elif monsterNameChoice == 2:
                 monsterName = "Spider"
         elif monsterNameChoice == 3:
                 monsterName = "Wolf"
+        elif monsterNameChoice == 4:
+                monsterName = "Slime"
+        elif monsterNameChoice == 5:
+                monsterName = ""
 
         return monsterName, monsterNameChoice, monsterHealth, monsterHealthChoice
 
@@ -138,10 +142,3 @@ def battleInput():
                 time.sleep(1)
                 print(" ")
                 battleInput()
-        
-def option():
-        global runOption
-        global attackOption
-        global battleChoice
-        
-        return runOption, attackOption, battleChoice
