@@ -1,12 +1,13 @@
 # This is a module for the beginning of the game.
-# Written by HalfKelp.
+# Written by HalfKelp.*
+
 import time
 
 def inputPlayerName():
     global playerName
     
     playerName = raw_input("> ")
-    print("'" + playerName + ". What a wonderful name!'")
+    print("'" + playerName.title() + ". What a wonderful name!'")
 
 def gameStart():
     print("'Why, hello there!'")
@@ -17,7 +18,7 @@ def gameStart():
     inputPlayerName()
     time.sleep(2)
     print(" ")
-    print("'" + playerName + ", your journey is about to begin!'")
+    print("'" + playerName.title() + ", your journey is about to begin!'")
     time.sleep(3)
     print("'You will fight monsters, get a key, and save the princess!'")
     time.sleep(2)

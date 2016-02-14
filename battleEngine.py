@@ -92,7 +92,15 @@ def battleInput():
                 else:
                         print("Oh no! The beast caught you!")
                         time.sleep(1)
-                        battleInput()
+                        if monsterHealth >= 1:
+                                monsterDamageDecide()
+                                print(" ")
+                                print("You took")
+                                print(monsterDamage)
+                                print("damage.")
+                                playerHealth = playerHealth - monsterDamage
+                                time.sleep(1)
+                                battleInput()
 
         elif battleChoice == "attack":
                 critHitChance = random.randint(0, 10)
@@ -111,7 +119,7 @@ def battleInput():
                         print(monsterName + " took")
                         print(attackDamage)
                         print("damage.")
-                if critHitChance == 10:
+                if critHitChance == 10 and missHitChance < 10:
                         time.sleep(1)
                         attackDamage = attackDamage + 1
                         print("CRITICAL HIT! +1 Damage.")

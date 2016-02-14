@@ -74,16 +74,22 @@ def storeStats():
 
 	global Sword
 	global BowAndArrow
-	
-	if Sword == True:
-		print"  Sword"
-	
-	else:	
-		if BowAndArrow == True:
-			print"  Bow and Arrow"
+
+	if Sword == True and BowAndArrow == True:
+		print"Sword"
+		print"Bow and Arrow"
+
+	else:
+		if Sword == True:
+			print"  Sword"
+			time.sleep(1)
 	
 		else:
-			print"  You haven't bought anything yet. Go to the Store to buy stuff"
+			if BowAndArrow == True:
+				print"  Bow and Arrow"
+
+			else:
+				print"  You haven't bought anything yet. Go to the Store to buy stuff"
 	
 			
 	return Sword, BowAndArrow

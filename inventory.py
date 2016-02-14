@@ -3,11 +3,9 @@
 
 # I integrated stats into the inventory.py
 # These are the stats you start with at the beginning of the game.
-import Store
 from Store import storeStats
 from Store import moneyValue
-#global Sword
-#global BowAndArrow
+
 global mana
 global playerHealth
 global level
@@ -49,7 +47,7 @@ def showStats():
 	print("Level:")
 	print(level)
 	print(" ")
-	print("XP:")
+	print("xp:")
 	print(XP)
 	print(" ")
 	print("Money:")

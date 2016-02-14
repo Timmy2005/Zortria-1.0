@@ -12,6 +12,7 @@ global corNumberX
 global corNumberY
 global witchX
 global witchY
+global direction
 
 import random
 import time
@@ -25,6 +26,7 @@ corNumberX = 5
 corNumberY = 1
 witchX = 2#random.randint(0,10)
 witchY = 2#random.randint(0,10)
+direction = ['north', 'south', 'east', 'west']
 
 def playerAction():
 	global corNumberX
@@ -43,9 +45,9 @@ def monsterEncounter(): # I think this would be better than monsterMove for a fe
 def playerAction():
         global corNumberX
         global corNumberY
-        corNumX = str(corNumberX)
-        corNumY = str(corNumberY)
-        print("You are at X:" + corNumX + " Y:" + corNumY)
+        global direction
+
+        print("You are at X:" + str(corNumberX) + " Y:" + str(corNumberY))
         playerInput = raw_input("> ").lower()
         if playerInput == "north":
                 if corNumberY == 10:
@@ -112,11 +114,51 @@ def playerAction():
         elif playerInput == "stats":
                 showStats()
                 playerAction()
+
+        elif playerInput == "help":
+                for i in direction:
+                        print "    '" + i.title() + "' -- go " + i + "."
+                        time.sleep(1)
+
+                print" "
+                time.sleep(2)
+                raw_input("    (press any enter for more)")
+                print"    'Inventory' -- look at player's inventory."
+                print"    'Stats' -- view player's stats."
+                print"    'Store' -- go to the store. You can buy weapons at the store."
+                print" "
+                time.sleep(2)
+                raw_input("    (press enter to continue) ")
+                print" "
+                print"    Type 'extra' for extra help."
+                print"    Type 'exit' to exit help."
+                end_help = raw_input("    >").lower()
+                print" "
+                if end_help == "extra":
+                        print"    Defeat monsters to get XP."
+                        print"    Once you get enough XP, you can level up."
+                        time.sleep(4)
+                        print"    You can buy more stuff in the store once you level up."
+                        print"    Use coins to buy stuff from the store."
+                        time.sleep(4)
+                        print"    You can get coins by exploring."
+                        print"    Find the key, go to the castle door and save the princess!!"
+                        time.sleep(2)
+                        print""
+                        raw_input("    (press enter to continue)")
+                        print"Input command."
+                        time.sleep(1)
+                        playerAction()
+                else:
+                        print"Input command."
+                        playerAction()
+
         else:
                 print("Invalid command.")
                 playerAction()
         
-        #if monsterX == corNumberX:
+        #if monster
+        # X == corNumberX:
         #       if monsterY == corNumberY:
         #               battleInput()
     # And I'll let Timmy2005 finish the code.
@@ -124,7 +166,7 @@ def playerAction():
 gameStart()
 corNumberX = 5
 corNumberY = 1
-print"Input Command"
+print"Input command"
 print"Type 'help' for help"
 #This is from 'gameMove.py'
 playerAction()
