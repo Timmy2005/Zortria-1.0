@@ -8,6 +8,8 @@ global monsterHealthxp
 global xp
 global playerHealthgain
 global random_money
+global money
+
 import random
 import time
 #from inventory import defaultStats
@@ -20,6 +22,7 @@ xp = 0
 playerHealth = 20
 playerHealthgain = 0
 random_money = 0
+money = 100
 
 # I defined monsterName as unknown so it could transfer to other functions,
 # but monsterRandomize changes it before the battle.
@@ -171,12 +174,13 @@ def battleInput():
             battleInput()
         else:
             print("You defeated the " + monsterName + "!")
-            random_money = random.randint(10, 110)
+            random_money = random.randint(50, 151)
             print"You got " + str(monsterHealthxp) + " xp."
             print"You got $" + str(random_money) + "."
             xp = xp + monsterHealthxp
             playerHealth = playerHealth + playerHealthgain
             playerHealthgain = playerHealthgain - playerHealthgain
+            monster_money()
 
     else:
         print("Invalid command.")
@@ -194,4 +198,15 @@ def xp_add():
 
 def monster_money():
     global random_money
-    return random_money
+    global money
+    money = money + random_money
+    random_money = 0
+    return money
+
+def sword_money():
+    global  money
+    money = money - 100
+
+def bow_and_arrow_money():
+    global money
+    money = money - 150

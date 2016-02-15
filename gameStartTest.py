@@ -43,3 +43,4 @@ def gameStart():
     time.sleep(2)
     print(" ")
     raw_input("Press enter to continue...")
+    print""

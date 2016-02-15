@@ -1,15 +1,15 @@
 global Sword
 global BowAndArrow
 global money
-global random_money
 
 Sword = False
 BowAndArrow = False
 import time
 from battleEngine import monster_money
+from battleEngine import sword_money
+from battleEngine import bow_and_arrow_money
 
-money = 100
-random_money = monster_money()
+money = monster_money()
 
 def store():
     global Sword
@@ -26,8 +26,7 @@ def store():
         print"   Bow an Arrow -- $150"
         time.sleep(1)
 
-    moneyStr = str(money)
-    print("   You have $" + moneyStr)
+    print("   You have $" + str(money))
     time.sleep(1.5)
     print""
     print("   Do you want to buy anything today?('yes' or 'no')  ")
@@ -39,7 +38,7 @@ def store():
             if money >= 150:
                 print"   You just bought a Bow and Arrow!"
                 BowAndArrow = True
-                money = money - 150
+                bow_and_arrow_money()
                 time.sleep(1)
                 print""
                 print"Input Command"
@@ -52,7 +51,7 @@ def store():
             if money >= 100:
                 print"   You just bought a Sword!"
                 Sword = True
-                money = money - 100
+                sword_money()
                 time.sleep(1)
                 print""
                 print"Input Command"
@@ -99,7 +98,5 @@ def storeStats():
 
 def moneyValue():
     global money
-    global random_money
-    random_money = monster_money()
-    money = money + monster_money()
+    money = monster_money()
     return money

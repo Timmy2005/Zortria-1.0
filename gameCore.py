@@ -159,6 +159,7 @@ def playerAction():
     else:
         print("Invalid command.")
         playerAction()
+    
 
         # if monster
         # X == corNumberX:
