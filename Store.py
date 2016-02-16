@@ -8,6 +8,8 @@ import time
 from battleEngine import monster_money
 from battleEngine import sword_money
 from battleEngine import bow_and_arrow_money
+from battleEngine import xp_add
+from battleEngine import playerHealthDev
 
 money = monster_money()
 
@@ -20,10 +22,10 @@ def store():
     time.sleep(1)
     print""
     if Sword == False:
-        print"   Sword -- $100"
+        print"   Sword -- $100 -- +1 attack damage"
         time.sleep(1)
     if BowAndArrow == False:
-        print"   Bow an Arrow -- $150"
+        print"   Bow an Arrow -- $150 -- +2 attack damage"
         time.sleep(1)
 
     print("   You have $" + str(money))
@@ -32,7 +34,7 @@ def store():
     print("   Do you want to buy anything today?('yes' or 'no')  ")
     buy = raw_input("   > ").lower()
     if buy == "yes":
-        print("   What do you want to buy?('Sword','Bow and Arrow' or 'nothing'")
+        print("   What do you want to buy?('Sword','Bow and Arrow' or 'nothing')")
         choice = raw_input("   > ").lower()
         if choice == "bow and arrow":
             if money >= 150:
@@ -100,3 +102,8 @@ def moneyValue():
     global money
     money = monster_money()
     return money
+
+def health_xp():#This function is for returning variables
+    playerHealth = playerHealthDev()
+    xp = xp_add()
+    return xp, playerHealth

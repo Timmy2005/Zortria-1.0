@@ -6,21 +6,16 @@
 import time
 from Store import storeStats
 from Store import moneyValue
-from battleEngine import xp_add
-from battleEngine import playerHealthDev
+from Store import health_xp
 
 global mana
-global playerHealth
 global level
-global xp
 global money
 global xp_level
 
 level = 1
 mana = 0
 money = moneyValue()
-xp = xp_add()
-playerHealth = playerHealthDev()
 xp_level = 1
 
 
@@ -40,20 +35,17 @@ def showInventory():
 
 def showStats():
     global mana
-    global playerHealth
     global level
-    global xp
     global money
     global xp_level
 
     xp_level = xp_level + level * level
     xp_level = xp_level * 100
-    xp = xp_add()
+    xp, playerHealth = health_xp()
     if xp >= 200:
         level = level + 1
         xp = xp - 200
     money = moneyValue()
-    playerHealth = playerHealthDev()
 
     print(" ")
     print("     Mana:")
