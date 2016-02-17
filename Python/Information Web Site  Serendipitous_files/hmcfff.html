@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!-- saved from url=(0182)http://free.timeanddate.com/clock/i4efuodn/n3601/szw110/szh110/hoc00f/hbw0/hfc000/cf100/hgr0/facf00/mqcfff/mql6/mqw2/mqd74/mhcfff/mhl6/mhw1/mhd74/mmcf00/mml4/mmw1/mmd74/hhcfff/hmcfff -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Timer</title><script type="text/javascript">
+et=1415291057;function f0(d){return ((d.getUTCHours()+11)%12+1)+':'+p2(d.getUTCMinutes())+':'+p2(d.getUTCSeconds())+' '+_ap(d);}
+cks={t1:{t:[{o:-18000,a:'EST'}],f:f0}};
+function _ap(d){var t=Math.floor(d.getTime()/1E3)%86400;if(t===0){return 'Midnight';}if(t==43200){return 'Noon';}if(t<43200){return 'AM';}return 'PM';}
+//Copyright timeanddate.com 2005-2010, do not use without permission
+var ltn=0,lt0;function dt(){return(new Date).getTime()}function gf(a){var b=document;if(b.getElementById)return b.getElementById(a);if(b.all)return b.all[a];return null}function ih(a,b){if(a)a.innerHTML=b}function rf(a,b){ih(gf("c1"),"refresh...");setTimeout("location.reload()",Math.floor(1E3*(a+Math.random()*b)))}function pf(a,b){for(;(a="0000"+a)&&a.length<b;);return a.substring(a.length-b)}function p2(a){return a<10?"0"+a:a}
+function upd(){var a,b,d,f,e,c;d=dt()+sa;if(ltn>d)rf(7,0);else{ltn=d;a=Math.floor(d/1E3);if(a>et)rf(10,0);else{if(a!=lt0){lt0=a;for(c in cks){b=cks[c];d=b.t;e=f="";for(var g=0;g<d.length;g++){if(d[g].t>a)break;f=d[g].o;e=d[g].a}}if(f!==""&&b.d1){a=new Date((a+f)*1E3);ih(b.d1,b.f(a));if(b.pa!=e&&b.d2){b.pa=e;ih(b.d2,e)}}d=dt()+sa}setTimeout(upd,1E3-d%1E3)}}}
+function sync(a){function b(h){document.cookie="tads="+h+"; path=/"}function d(h,q,i){sa=h;sae=q;if(flO)try{flO.setSync(h)}catch(r){if(i<2E3){i+=100;setTimeout(function(){d(sa,sae,i)},i)}}}var f,e,c,g,j,l,n,o,p,m=document.cookie,k;if(m){if(f=m.match(/tads\=(\d+)_(\d+)/)){e=dt();e=f[1]-e;if(e>-10000){d(f[2]-0,f[3]-0,0);upd();return}}if(a<1E3&&m.indexOf("tads=c")>=0){a=a*2+10;setTimeout("sync("+a+")",a);return}}b("c");c=null;a=window;try{if(a.XMLHttpRequest)c=new XMLHttpRequest}catch(s){}if(!c)try{if(a.ActiveXObject)c=
+new ActiveXObject("Msxml2.XMLHTTP")}catch(t){}if(!c)try{if(a.ActiveXObject)c=new ActiveXObject("Microsoft.XMLHTTP")}catch(u){}if(c)try{k=dt();g=document.URL.replace(/clock.*/,"ts.php?t="+k);c.open("GET",g,true);c.onreadystatechange=function(){j=dt();if(c&&c.readyState==4&&c.status==200){l=(k+j)/2;n=parseFloat(c.responseText)*1E3;o=Math.floor(n-l);p=j-l;d(o,p,0);b(j+"_"+sa);c=null;upd()}};k=dt();c.send("")}catch(v){}}
+function init(){var a,b;flO=gf("count");lt0=0;if(typeof cks!=="undefined"){for(a in cks){b=cks[a];b.d1=gf(a);b.d2=gf(a+"a");b.pa=""}sync(0)}};
+
+</script><style type="text/css">
+#c1 {text-align:center;display:block;margin:0px auto;background-color:transparent;padding:1px;border:none;}
+#t1c,#t1 {white-space:nowrap;font-family:Arial, Helvetica,sans-serif;font-size:14px;color:#000;text-decoration:none;}
+.t100 {width:100%;height:100%;}
+.tab {margin: 0 auto;}
+body {border:none;margin:0px;padding:0px;overflow:hidden;background-color:transparent;}
+</style><title>Time in Charlottesville</title></head>
+<body onload="init()" allowtransparency="true" style="background:transparent"><table cellpadding="0" cellspacing="0" border="0" class="tab t100" id="c2"><tbody><tr><td id="c1" valign="middle"><object width="110" height="110" id="count" data="http://free.timeanddate.com/fl/fc_c_v3.swf" type="application/x-shockwave-flash"><param name="movie" value="/fl/fc_c_v3.swf"><param name="quality" value="high"><param name="flashvars" value="hoc=0000ff&amp;hbw=0&amp;hfc=000000&amp;hgr=0&amp;fdi=173&amp;fan=_sans&amp;fin=_sans&amp;fas=34&amp;fis=34&amp;fac=ff0000&amp;fic=ff0000&amp;mqc=ffffff&amp;mql=12&amp;mqw=4&amp;mqd=148&amp;mhc=ffffff&amp;mhl=12&amp;mhw=2&amp;mhd=148&amp;mmc=ff0000&amp;mml=8&amp;mmw=2&amp;mmd=148&amp;hhc=ffffff&amp;hmc=ffffff&amp;hsc=ff0000&amp;n=3601&amp;dst=-18000"><param name="swliveconnect" value="true"><param name="wmode" value="transparent"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="sameDomain"><a id="t1c" href="http://www.timeanddate.com/worldclock/city.html?n=3601" target="_blank" title="clock provided by timeanddate.com"><span id="t1">12:20:37 PM</span></a></object></td></tr></tbody></table>
+</body></html>

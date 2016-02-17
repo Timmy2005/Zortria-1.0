@@ -23,6 +23,7 @@ from inventory import showStats
 from battleEngine import battleInput
 from battleEngine import monsterRandomize
 from battleEngine import playerHealthDev
+from battleEngine import use_weapons
 
 corNumberX = 5
 corNumberY = 1
@@ -42,6 +43,7 @@ def monsterEncounter():  # I think this would be better than monsterMove for a f
     monsterChance = random.randint(1, 5)
     if monsterChance >= 4:
         monsterRandomize()
+        use_weapons()
         battleInput()
         playerHealth = playerHealthDev()
         if playerHealth < 1:

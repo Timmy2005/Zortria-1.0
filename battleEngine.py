@@ -119,6 +119,8 @@ def use_weapons():
         elif weapons_choice == "bow and arrow":
             print"Using bow and arrow for this battle."
             using_bow_and_arrow = True
+
+
 def battleInput():
     global monsterHealth
     global attackOption
