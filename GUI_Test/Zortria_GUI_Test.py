@@ -1,4 +1,8 @@
+
+
+
 import Tkinter
+import time
 from Tkinter import *
 
 class Zortria(Tkinter.Tk):
@@ -30,7 +34,7 @@ class Zortria(Tkinter.Tk):
         self.grid_columnconfigure(0,weight=1)
 
     def OnButtonClick(self):
-        self.labelVariable.set("Running Game...")
+        self.labelVariable.set("Running game...")
 
 if __name__ == "__main__":
     app = Zortria(None)

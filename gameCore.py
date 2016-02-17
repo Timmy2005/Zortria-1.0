@@ -22,6 +22,7 @@ from inventory import showInventory
 from inventory import showStats
 from battleEngine import battleInput
 from battleEngine import monsterRandomize
+from battleEngine import playerHealthDev
 
 corNumberX = 5
 corNumberY = 1
@@ -42,6 +43,13 @@ def monsterEncounter():  # I think this would be better than monsterMove for a f
     if monsterChance >= 4:
         monsterRandomize()
         battleInput()
+        playerHealth = playerHealthDev()
+        if playerHealth < 1:
+            print""
+            print"GAME OVER -- You ran out of lives."
+            time.sleep(3)
+            quit()
+
 
 
 def playerAction():

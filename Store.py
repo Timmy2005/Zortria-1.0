@@ -2,14 +2,15 @@ global Sword
 global BowAndArrow
 global money
 
-Sword = False
-BowAndArrow = False
 import time
 from battleEngine import monster_money
 from battleEngine import sword_money
 from battleEngine import bow_and_arrow_money
 from battleEngine import xp_add
 from battleEngine import playerHealthDev
+from battleEngine import BowAndArrow_change
+from battleEngine import Sword_change
+from battleEngine import weapons_return
 
 money = monster_money()
 
@@ -18,6 +19,9 @@ def store():
     global BowAndArrow
     global money
 
+    money = monster_money()
+
+    Sword, BowAndArrow = weapons_return()
     print"   Store"
     time.sleep(1)
     print""
@@ -39,7 +43,7 @@ def store():
         if choice == "bow and arrow":
             if money >= 150:
                 print"   You just bought a Bow and Arrow!"
-                BowAndArrow = True
+                BowAndArrow_change()
                 bow_and_arrow_money()
                 time.sleep(1)
                 print""
@@ -52,7 +56,7 @@ def store():
         if choice == "sword":
             if money >= 100:
                 print"   You just bought a Sword!"
-                Sword = True
+                Sword_change()
                 sword_money()
                 time.sleep(1)
                 print""
@@ -76,9 +80,8 @@ def store():
 
 
 def storeStats():
-    global Sword
-    global BowAndArrow
 
+    Sword, BowAndArrow = weapons_return()
     if Sword == True and BowAndArrow == True:
         print"Sword"
         print"Bow and Arrow"
