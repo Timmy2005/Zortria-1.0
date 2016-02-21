@@ -1,4 +1,5 @@
-# This game was made by Timmy2005 and HalfKelp.
+# This is the Game Input module.
+# It allows the player to perform actions by typing in what looks like a console.
 #
 # FOR COLLABORATORS:
 # This is the format for inputting commands:
@@ -16,7 +17,6 @@ global direction
 
 import random
 import time
-from gameStartTest import gameStart
 from Store import store
 from inventory import showInventory
 from inventory import showStats
@@ -128,43 +128,7 @@ def playerAction():
         playerAction()
 
     elif playerInput == "help":
-        for i in direction:
-            print "    '" + i.title() + "' -- go " + i + "."
-            time.sleep(1)
-
-        print" "
-        time.sleep(2)
-        raw_input("    (press any enter for more)")
-        print" "
-        print"    'Inventory' -- look at player's inventory."
-        print"    'Stats' -- view player's stats."
-        print"    'Store' -- go to the store. You can buy weapons at the store."
-        print" "
-        time.sleep(2)
-        raw_input("    (press enter to continue) ")
-        print" "
-        print"    Type 'extra' for extra help."
-        print"    Type 'exit' to exit help."
-        end_help = raw_input("    >  ").lower()
-        print" "
-        if end_help == "extra":
-            print"    Defeat monsters to get XP."
-            print"    Once you get enough XP, you can level up."
-            time.sleep(4)
-            print"    You can buy more stuff in the store once you level up."
-            print"    Use coins to buy stuff from the store."
-            time.sleep(4)
-            print"    You can get coins by exploring."
-            print"    Find the key, go to the castle door and save the princess!!"
-            time.sleep(2)
-            print""
-            raw_input("    (press enter to continue)")
-            print"Input command."
-            time.sleep(1)
-            playerAction()
-        else:
-            print"Input command."
-            playerAction()
+        print("Balls.")
 
     else:
         print("Invalid command.")
