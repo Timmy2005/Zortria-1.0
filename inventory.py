@@ -7,17 +7,17 @@ import time
 from Store import storeStats
 from Store import moneyValue
 from Store import health_xp
+from battleEngine import level_xp
 
 global mana
 global level
 global money
 global xp_level
 
-level = 1
+level = level_xp()
 mana = 0
 money = moneyValue()
 xp_level = 1
-
 
 def defaultStats():
     global mana

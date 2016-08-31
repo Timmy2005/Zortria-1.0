@@ -13,6 +13,7 @@ global Sword
 global BowAndArrow
 global using_sword
 global using_bow_and_arrow
+global level
 
 import random
 import time
@@ -31,11 +32,15 @@ Sword = False
 BowAndArrow = False
 using_bow_and_arrow = False
 using_sword = False
+level = 1
 
 # I defined monsterName as unknown so it could transfer to other functions,
 # but monsterRandomize changes it before the battle.
 # I did the same thing for monsterHealth and monsterHealthxp.
 
+def level_xp():
+    global level
+    return level
 
 def monsterRandomize():
     global monsterName
@@ -49,13 +54,15 @@ def monsterRandomize():
 
     monsterHealthChoice = random.randint(7, 16)
     monsterHealth = monsterHealthChoice
-    monsterNameChoice = random.randint(1, 3)
+    monsterNameChoice = random.randint(1, 5)
     if monsterNameChoice == 1:
         monsterName = "Beast"
     elif monsterNameChoice == 2:
         monsterName = "Spider"
     elif monsterNameChoice == 3:
         monsterName = "Wolf"
+    elif monsterNameChoice == 4:
+        monsterName = "Slime"
 
     monsterHealthxp = monsterHealth
     monsterHealthxp = monsterHealthxp * 10
@@ -89,22 +96,22 @@ def monsterDamageDecide():
     global monsterDamageChoice
 
     monsterDamageChoice = random.randint(1, 10)
-    if monsterDamageChoice <= 10:
-        monsterDamage = 1
+    if monsterDamageChoice < 10:
+        monsterDamage = random.randint(2,5)
     elif monsterDamageChoice == 10:  # Monster critical hit, basically.
-        monsterDamage = 2
-
+        monsterDamage = random.randint(3, 7)
 
 def monsterDamageDecideDev():  # This is for returning the variables.
     global monsterDamage
     global monsterDamageChoice
 
     monsterDamageChoice = random.randint(1, 10)
-    if monsterDamageChoice <= 10:
-        monsterDamage = 1
+    if monsterDamageChoice < 10:
+        monsterDamage = random.randint(2, 5)
     elif monsterDamageChoice == 10:  # Monster critical hit, basically.
-        monsterDamage = 2
+        monsterDamage = random.randint(3, 7)
 
+    monsterDamage = monsterDamage + level
 
 def use_weapons():
     global Sword
@@ -171,9 +178,9 @@ def battleInput():
 
     elif battleChoice == "attack":
         critHitChance = random.randint(0, 10)
-        doubleDamage = random.randint(0, 100)  # This is just something silly I added. Move along...
+        doubleDamage = random.randint(0, 10)  # This is just something silly I added. Move along...
         missHitChance = random.randint(0, 10)
-        attackDamage = 1
+        attackDamage = random.randint(1,4)
 
         if Sword == True and BowAndArrow == True:
             if using_sword == True:

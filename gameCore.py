@@ -24,6 +24,7 @@ from battleEngine import battleInput
 from battleEngine import monsterRandomize
 from battleEngine import playerHealthDev
 from battleEngine import use_weapons
+from gameStartTest import gameStart
 
 corNumberX = 5
 corNumberY = 1
@@ -31,6 +32,7 @@ witchX = 2  # random.randint(0,10)
 witchY = 2  # random.randint(0,10)
 direction = ['north', 'south', 'east', 'west']
 
+gameStart()
 
 def playerAction():
     global corNumberX
@@ -129,6 +131,7 @@ def playerAction():
 
     elif playerInput == "help":
         print("Balls.")
+        playerAction()
 
     else:
         print("Invalid command.")
@@ -142,9 +145,9 @@ def playerAction():
         # And I'll let Timmy2005 finish the code.
 
 
-gameStart()
-corNumberX = 5
-corNumberY = 1
+#gameStart()
+corNumberX = random.randint(3, 7)
+corNumberY = random.randint(1, 5)
 print"Input command"
 print"Type 'help' for help"
 playerAction()

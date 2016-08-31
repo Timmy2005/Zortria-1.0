@@ -83,17 +83,20 @@ def storeStats():
 
     Sword, BowAndArrow = weapons_return()
     if Sword == True and BowAndArrow == True:
-        print"Sword"
-        print"Bow and Arrow"
+        print"  Sword"
+        print"  Bow and Arrow"
 
     else:
         if Sword == True:
             print"  Sword"
+
             time.sleep(1)
 
         else:
             if BowAndArrow == True:
                 print"  Bow and Arrow"
+                print""
+                time.sleep(1)
 
             else:
                 print"  You haven't bought anything yet. Go to the Store to buy stuff"
