@@ -14,6 +14,7 @@ global corNumberY
 global witchX
 global witchY
 global direction
+global money
 
 import random
 import time
@@ -24,21 +25,16 @@ from battleEngine import battleInput
 from battleEngine import monsterRandomize
 from battleEngine import playerHealthDev
 from battleEngine import use_weapons
+from battleEngine import money_return
 from gameStartTest import gameStart
+from battleEngine import treasure
 
-corNumberX = 5
+corNumberX = 1
 corNumberY = 1
+money = money_return()
 witchX = 2  # random.randint(0,10)
 witchY = 2  # random.randint(0,10)
 direction = ['north', 'south', 'east', 'west']
-
-gameStart()
-
-def playerAction():
-    global corNumberX
-    global corNumberY
-    global witchY
-    global witchX
 
 
 def monsterEncounter():  # I think this would be better than monsterMove for a few reasons. Just an idea, though.
@@ -63,6 +59,7 @@ def playerAction():
 
     print("You are at X:" + str(corNumberX) + " Y:" + str(corNumberY))
     playerInput = raw_input("> ").lower()
+
     if playerInput == "north":
         if corNumberY == 10:
             if corNumberX == 3:
@@ -75,7 +72,9 @@ def playerAction():
                 playerAction()
         corNumberY = corNumberY + 1
         monsterEncounter()
+        hidden_treasure()
         playerAction()
+
     elif playerInput == "south":  # Yeah! Go 'elif'!
         if corNumberY == 0:
             print"Don't be silly! You still have a princess to save!"
@@ -84,7 +83,9 @@ def playerAction():
         else:
             corNumberY = corNumberY - 1
             monsterEncounter()
+            hidden_treasure()
             playerAction()
+
     elif playerInput == "east":
         if corNumberX == 10:
             print"Whoa! You almost fell of the cliff!"
@@ -93,7 +94,9 @@ def playerAction():
         else:
             corNumberX = corNumberX + 1
             monsterEncounter()
+            hidden_treasure()
             playerAction()
+
     elif playerInput == "west":
         if corNumberX == 0:
             print"You don't want to go in there! That forest doesn't have anything in it"
@@ -102,13 +105,17 @@ def playerAction():
         else:
             corNumberX = corNumberX - 1
             monsterEncounter()
+            hidden_treasure()
             playerAction()
+
     elif playerInput == "inventory":
         showInventory()  # This function is defined in the 'inventory.py' file.
         playerAction()
+
     elif playerInput == "store":
         store()
         playerAction()
+
     elif playerInput == "exitgame":
         print("Are you sure you want to quit? ('yes' or 'no')")
         exitConfirm = raw_input("> ")
@@ -125,18 +132,19 @@ def playerAction():
             print("Invalid answer.")
             print("Will not exit the game.")
             playerAction()
+
     elif playerInput == "stats":
         showStats()
         playerAction()
 
     elif playerInput == "help":
-        print("Balls.")
+
         playerAction()
 
     else:
         print("Invalid command.")
         playerAction()
-    
+
 
         # if monster
         # X == corNumberX:
@@ -144,8 +152,22 @@ def playerAction():
         #               battleInput()
         # And I'll let Timmy2005 finish the code.
 
+def hidden_treasure():
+    global corNumberX
+    global corNumberY
+    global money
 
-#gameStart()
+    for i in range(1, 50):
+        random_x = random.randint(1, 10)
+        random_y = random.randint(1, 10)
+
+        if random_x == corNumberX:
+            if random_y == corNumberY:
+                treasure()
+                playerAction()
+
+
+gameStart() #This is just for testing so the test goes faster, but we can run gameStart for players.
 corNumberX = random.randint(3, 7)
 corNumberY = random.randint(1, 5)
 print"Input command"

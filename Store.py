@@ -109,6 +109,7 @@ def moneyValue():
     money = monster_money()
     return money
 
+
 def health_xp():#This function is for returning variables
     playerHealth = playerHealthDev()
     xp = xp_add()

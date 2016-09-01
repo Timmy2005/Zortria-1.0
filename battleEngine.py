@@ -17,9 +17,8 @@ global level
 
 import random
 import time
-#from inventory import defaultStats
 
-#mana, playerHealth, level = defaultStats()
+
 monsterName = "unknown"
 monsterHealth = "8"
 monsterHealthxp = 0
@@ -279,3 +278,14 @@ def weapons_return():
     global Sword
     global BowAndArrow
     return Sword, BowAndArrow
+
+def money_return():
+    global money
+    return money
+
+def treasure():
+    global money
+
+    money_choice = random.randint(20, 40)
+    print"You found $" + str(money_choice) + " in a treasure chest!"
+    money = money + money_choice
