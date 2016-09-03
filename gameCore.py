@@ -37,6 +37,14 @@ witchY = 2  # random.randint(0,10)
 direction = ['north', 'south', 'east', 'west']
 
 
+def witch():
+    global witchX
+    global witchY
+
+    witchX = random.randint(1, 10)
+    witchY = random.randint(1, 10)
+    
+
 def monsterEncounter():  # I think this would be better than monsterMove for a few reasons. Just an idea, though.
     monsterChance = random.randint(1, 5)
     if monsterChance >= 4:
@@ -108,7 +116,7 @@ def playerAction():
             hidden_treasure()
             playerAction()
 
-    elif playerInput == "inventory":
+    elif playerInput == "stats":
         showInventory()  # This function is defined in the 'inventory.py' file.
         playerAction()
 
@@ -133,7 +141,7 @@ def playerAction():
             print("Will not exit the game.")
             playerAction()
 
-    elif playerInput == "stats":
+    elif playerInput == "inventory":
         showStats()
         playerAction()
 
@@ -167,7 +175,7 @@ def hidden_treasure():
                 playerAction()
 
 
-gameStart() #This is just for testing so the test goes faster, but we can run gameStart for players.
+gameStart() #This is commented out just for testing. We can run gameStart() for players.
 corNumberX = random.randint(3, 7)
 corNumberY = random.randint(1, 5)
 print"Input command"

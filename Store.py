@@ -11,6 +11,8 @@ from battleEngine import playerHealthDev
 from battleEngine import BowAndArrow_change
 from battleEngine import Sword_change
 from battleEngine import weapons_return
+from battleEngine import bow_and_arrow_upgrade
+from battleEngine import sword_upgrade
 
 money = monster_money()
 
@@ -25,6 +27,9 @@ def store():
     print"   Store"
     time.sleep(1)
     print""
+    if Sword == True and BowAndArrow == True:
+        print"  Sorry, we're out of stock!"
+        upgrade()
     if Sword == False:
         print"   Sword -- $100 -- +1 attack damage"
         time.sleep(1)
@@ -73,6 +78,8 @@ def store():
             print"Input Command"
 
     if buy == "no":
+
+        upgrade()
         print "   Now get out there and hammer those monsters!"
         time.sleep(1)
         print""
@@ -114,3 +121,68 @@ def health_xp():#This function is for returning variables
     playerHealth = playerHealthDev()
     xp = xp_add()
     return xp, playerHealth
+
+def upgrade():
+    Sword, BowAndArrow = weapons_return()
+    if Sword == True and BowAndArrow == True:
+        upgrade = raw_input("   Do you want to upgrade anything today?('yes' or'no')")
+        if upgrade == "yes":
+            print("   What do you want to upgrade?('Sword','Bow and Arrow' or 'nothing')")
+            choice = raw_input("   > ").lower()
+            if choice == "bow and arrow":
+                bow_and_arrow_upgrade()
+
+            elif choice == "sword".lower():
+                sword_upgrade()
+
+            else:
+                print"  Invalid Command."
+                store()
+
+        elif upgrade == "no":
+            print "   Now get out there and hammer those monsters!"
+            time.sleep(1)
+            print""
+            print"Input Command"
+
+        else:
+            print"  Invalid Command."
+            store()
+
+
+    elif Sword == True:
+        print"   Do you want to upgrade your sword?('yes' or 'no')"
+        choice = raw_input("    >").lower()
+        if choice == "yes":
+            sword_upgrade()
+
+        elif choice == "no":
+            print "   Now get out there and hammer those monsters!"
+            time.sleep(1)
+            print""
+            print"Input Command"
+
+        else:
+            print"  Invalid Command."
+            store()
+
+    elif BowAndArrow == True:
+        print"   Do you want to upgrade your bow and arrow?('yes' or 'no')"
+        choice = raw_input("   >").lower()
+        if choice == "yes":
+            bow_and_arrow_upgrade()
+
+        elif choice == "no":
+            print "   Now get out there and hammer those monsters!"
+            time.sleep(1)
+            print""
+            print"Input Command"
+
+        else:
+            print"  Invalid Command."
+            store()
+    else:
+        print "   Now get out there and hammer those monsters!"
+        time.sleep(1)
+        print""
+        print"Input Command"

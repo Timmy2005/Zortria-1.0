@@ -19,6 +19,7 @@ mana = 0
 money = moneyValue()
 xp_level = 1
 
+
 def defaultStats():
     global mana
     global playerHealth
@@ -28,44 +29,35 @@ def defaultStats():
     level = 1
     return mana, playerHealth, level
 
-
-def showInventory():
+def showStats():
     storeStats()
 
-
-def showStats():
-    global mana
-    global level
-    global money
+def showInventory():
     global xp_level
-
+    global level
     xp_level = xp_level + level * level
     xp_level = xp_level * 100
     xp, playerHealth = health_xp()
-    if xp >= 200:
+    while xp >= 50:
         level = level + 1
-        xp = xp - 200
+        xp = xp - 50
     money = moneyValue()
 
     print(" ")
     print("     Mana:")
     print("     " + str(mana))
-    time.sleep(1)
     print(" ")
     print("     Health:")
     print("     " + str(playerHealth))
-    time.sleep(1)
     print(" ")
     print("     Level:")
     print("     " + str(level))
-    time.sleep(1)
     print(" ")
     print("     xp:")
     print("     " + str(xp))
-    time.sleep(1)
     print(" ")
     print("     Money:")
     print("     " + str(money))
     print(" ")
-    time.sleep(1)
     print"Input command"
+    return level, xp

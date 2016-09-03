@@ -14,12 +14,17 @@ global BowAndArrow
 global using_sword
 global using_bow_and_arrow
 global level
+global bow_and_arrow_damage
+global sword_damage
+
 
 import random
 import time
 
 
-monsterName = "unknown"
+sword_damage = 0
+bow_and_arrow_damage = 0
+monsterName = "Beast"
 monsterHealth = "8"
 monsterHealthxp = 0
 xp = 0
@@ -32,6 +37,7 @@ BowAndArrow = False
 using_bow_and_arrow = False
 using_sword = False
 level = 1
+
 
 # I defined monsterName as unknown so it could transfer to other functions,
 # but monsterRandomize changes it before the battle.
@@ -52,7 +58,7 @@ def monsterRandomize():
     global playerHealthgain
 
     monsterHealthChoice = random.randint(7, 16)
-    monsterHealth = monsterHealthChoice
+    monsterHealth = monsterHealthChoice + level
     monsterNameChoice = random.randint(1, 5)
     if monsterNameChoice == 1:
         monsterName = "Beast"
@@ -76,7 +82,7 @@ def monsterRandomizeDev():  # This is for returning the variables.
 
     monsterHealthChoice = random.randint(7, 16)
     monsterHealth = monsterHealthChoice
-    monsterNameChoice = random.randint(1, 5)
+    monsterNameChoice = random.randint(1, 4)
     if monsterNameChoice == 1:
         monsterName = "Beast"
     elif monsterNameChoice == 2:
@@ -85,8 +91,6 @@ def monsterRandomizeDev():  # This is for returning the variables.
         monsterName = "Wolf"
     elif monsterNameChoice == 4:
         monsterName = "Slime"
-    elif monsterNameChoice == 5:
-        monsterName = ""
 
     return monsterName, monsterNameChoice, monsterHealth, monsterHealthChoice
 
@@ -99,6 +103,7 @@ def monsterDamageDecide():
         monsterDamage = random.randint(2,5)
     elif monsterDamageChoice == 10:  # Monster critical hit, basically.
         monsterDamage = random.randint(3, 7)
+    monsterDamage = monsterDamage + level
 
 def monsterDamageDecideDev():  # This is for returning the variables.
     global monsterDamage
@@ -140,6 +145,10 @@ def battleInput():
     global random_money
     global using_sword
     global using_bow_and_arrow
+    global bow_and_arrow_damage
+    global sword_damage
+
+
     print(" ")
     print("Your HP:")
     print(playerHealth)
@@ -183,16 +192,18 @@ def battleInput():
 
         if Sword == True and BowAndArrow == True:
             if using_sword == True:
-                attackDamage = attackDamage + 1
+                attackDamage = attackDamage + 2 + sword_damage
             elif using_bow_and_arrow == True:
-                attackDamage = attackDamage + 2
+                attackDamage = attackDamage + 3 + bow_and_arrow_damage
         elif Sword == True:
-            attackDamage = attackDamage + 1
+            attackDamage = attackDamage + 2 + sword_damage
         elif BowAndArrow == True:
-            attackDamage = attackDamage + 2
+            attackDamage = attackDamage + 3 + bow_and_arrow_damage
+        else:
+            attackDamage = attackDamage + 1
 
 
-        if doubleDamage == 100:
+        if doubleDamage == 10:
             attackDamage = attackDamage * 2
         if missHitChance == 10:
             print(monsterName + " dodged the attack.")
@@ -208,7 +219,7 @@ def battleInput():
             time.sleep(1)
             attackDamage = attackDamage + 1
             print("CRITICAL HIT! +1 Damage.")
-        if doubleDamage == 100:
+        if doubleDamage == 10:
             time.sleep(1)
             print("DOUBLE DAMAGE! x2 Damage.")
         time.sleep(1)
@@ -232,7 +243,7 @@ def battleInput():
             random_money = random.randint(50, 151)
             print"You got " + str(monsterHealthxp) + " xp."
             print"You got $" + str(random_money) + "."
-            xp = xp + monsterHealthxp
+            xp = xp + monsterHealthxp + 50
             playerHealth = playerHealth + playerHealthgain
             playerHealthgain = playerHealthgain - playerHealthgain
             monster_money()
@@ -289,3 +300,16 @@ def treasure():
     money_choice = random.randint(20, 40)
     print"You found $" + str(money_choice) + " in a treasure chest!"
     money = money + money_choice
+
+
+def bow_and_arrow_upgrade():
+    global bow_and_arrow_damage
+    global money
+    money = money - 100
+    bow_and_arrow_damage = bow_and_arrow_damage + 1
+
+def sword_upgrade():
+    global sword_damage
+    global money
+    money = money - 100
+    sword_damage = sword_damage + 1
