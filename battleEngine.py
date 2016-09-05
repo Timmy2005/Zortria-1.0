@@ -1,3 +1,6 @@
+import time
+import random
+
 global beastHealth
 global attackOption
 global runOption
@@ -16,10 +19,7 @@ global using_bow_and_arrow
 global level
 global bow_and_arrow_damage
 global sword_damage
-
-
-import random
-import time
+global xp_level
 
 
 sword_damage = 0
@@ -37,15 +37,32 @@ BowAndArrow = False
 using_bow_and_arrow = False
 using_sword = False
 level = 1
+xp_level = 1
 
 
 # I defined monsterName as unknown so it could transfer to other functions,
 # but monsterRandomize changes it before the battle.
 # I did the same thing for monsterHealth and monsterHealthxp.
+def xp_to_level():
+    global xp_level
+    global level
+    global xp
+
+    xp_add()
+
+    xp_level = xp_level + level * level
+    xp_level = xp_level * 100
+    while xp >= 100:
+        level = level + 1
+        xp = xp - 100
+
+    return level
+
 
 def level_xp():
     global level
     return level
+
 
 def monsterRandomize():
     global monsterName
@@ -56,10 +73,13 @@ def monsterRandomize():
     global monsterHealthChoice
     global monsterHealthxp
     global playerHealthgain
+    global level
+
+    level = xp_to_level()
 
     monsterHealthChoice = random.randint(7, 16)
     monsterHealth = monsterHealthChoice + level
-    monsterNameChoice = random.randint(1, 5)
+    monsterNameChoice = random.randint(1, 4)
     if monsterNameChoice == 1:
         monsterName = "Beast"
     elif monsterNameChoice == 2:
@@ -73,15 +93,19 @@ def monsterRandomize():
     monsterHealthxp = monsterHealthxp * 10
     playerHealthgain = monsterHealth
 
+
 def monsterRandomizeDev():  # This is for returning the variables.
 
     global monsterName
     global monsterNameChoice
     global monsterHealth
     global monsterHealthChoice
+    global level
+
+    level = xp_to_level()
 
     monsterHealthChoice = random.randint(7, 16)
-    monsterHealth = monsterHealthChoice
+    monsterHealth = monsterHealthChoice + level
     monsterNameChoice = random.randint(1, 4)
     if monsterNameChoice == 1:
         monsterName = "Beast"
@@ -94,20 +118,28 @@ def monsterRandomizeDev():  # This is for returning the variables.
 
     return monsterName, monsterNameChoice, monsterHealth, monsterHealthChoice
 
+
 def monsterDamageDecide():
     global monsterDamage
     global monsterDamageChoice
+    global level
+
+    level = xp_to_level()
 
     monsterDamageChoice = random.randint(1, 10)
     if monsterDamageChoice < 10:
-        monsterDamage = random.randint(2,5)
+        monsterDamage = random.randint(2, 5)
     elif monsterDamageChoice == 10:  # Monster critical hit, basically.
         monsterDamage = random.randint(3, 7)
     monsterDamage = monsterDamage + level
 
+
 def monsterDamageDecideDev():  # This is for returning the variables.
     global monsterDamage
     global monsterDamageChoice
+    global level
+
+    level = xp_to_level()
 
     monsterDamageChoice = random.randint(1, 10)
     if monsterDamageChoice < 10:
@@ -117,13 +149,15 @@ def monsterDamageDecideDev():  # This is for returning the variables.
 
     monsterDamage = monsterDamage + level
 
+
 def use_weapons():
     global Sword
     global BowAndArrow
     global using_sword
     global using_bow_and_arrow
     if Sword == True and BowAndArrow == True:
-        weapons_choice = raw_input("Do you want to use bow and arrow or your sword?('sword' or 'bow and arrow')").lower()
+        weapons_choice = raw_input(
+            "Do you want to use bow and arrow or your sword?('sword' or 'bow and arrow')").lower()
         if weapons_choice == "sword":
             print"Using sword for this battle."
             using_sword = True
@@ -147,7 +181,6 @@ def battleInput():
     global using_bow_and_arrow
     global bow_and_arrow_damage
     global sword_damage
-
 
     print(" ")
     print("Your HP:")
@@ -188,7 +221,7 @@ def battleInput():
         critHitChance = random.randint(0, 10)
         doubleDamage = random.randint(0, 10)  # This is just something silly I added. Move along...
         missHitChance = random.randint(0, 10)
-        attackDamage = random.randint(1,4)
+        attackDamage = random.randint(1, 4)
 
         if Sword == True and BowAndArrow == True:
             if using_sword == True:
@@ -201,7 +234,6 @@ def battleInput():
             attackDamage = attackDamage + 3 + bow_and_arrow_damage
         else:
             attackDamage = attackDamage + 1
-
 
         if doubleDamage == 10:
             attackDamage = attackDamage * 2
@@ -243,7 +275,7 @@ def battleInput():
             random_money = random.randint(50, 151)
             print"You got " + str(monsterHealthxp) + " xp."
             print"You got $" + str(random_money) + "."
-            xp = xp + monsterHealthxp + 50
+            xp = xp + monsterHealthxp
             playerHealth = playerHealth + playerHealthgain
             playerHealthgain = playerHealthgain - playerHealthgain
             monster_money()
@@ -254,13 +286,16 @@ def battleInput():
         print(" ")
         battleInput()
 
+
 def playerHealthDev():
     global playerHealth
     return playerHealth
 
+
 def xp_add():
     global xp
     return xp
+
 
 def monster_money():
     global random_money
@@ -269,30 +304,37 @@ def monster_money():
     random_money = 0
     return money
 
+
 def sword_money():
-    global  money
+    global money
     money = money - 100
+
 
 def bow_and_arrow_money():
     global money
     money = money - 150
 
+
 def Sword_change():
     global Sword
     Sword = True
 
+
 def BowAndArrow_change():
     global BowAndArrow
     BowAndArrow = True
+
 
 def weapons_return():
     global Sword
     global BowAndArrow
     return Sword, BowAndArrow
 
+
 def money_return():
     global money
     return money
+
 
 def treasure():
     global money
@@ -308,8 +350,13 @@ def bow_and_arrow_upgrade():
     money = money - 100
     bow_and_arrow_damage = bow_and_arrow_damage + 1
 
+
 def sword_upgrade():
     global sword_damage
     global money
     money = money - 100
     sword_damage = sword_damage + 1
+
+def map_money():
+    global money
+    money = money - 200

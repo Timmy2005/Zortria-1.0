@@ -6,7 +6,6 @@ import time
 from battleEngine import monster_money
 from battleEngine import sword_money
 from battleEngine import bow_and_arrow_money
-from battleEngine import xp_add
 from battleEngine import playerHealthDev
 from battleEngine import BowAndArrow_change
 from battleEngine import Sword_change
@@ -111,16 +110,10 @@ def storeStats():
     return Sword, BowAndArrow
 
 
-def moneyValue():
-    global money
-    money = monster_money()
-    return money
-
-
 def health_xp():#This function is for returning variables
     playerHealth = playerHealthDev()
-    xp = xp_add()
-    return xp, playerHealth
+    return playerHealth
+
 
 def upgrade():
     Sword, BowAndArrow = weapons_return()
@@ -152,7 +145,7 @@ def upgrade():
 
     elif Sword == True:
         print"   Do you want to upgrade your sword?('yes' or 'no')"
-        choice = raw_input("    >").lower()
+        choice = raw_input("   > ").lower()
         if choice == "yes":
             sword_upgrade()
 
@@ -168,7 +161,7 @@ def upgrade():
 
     elif BowAndArrow == True:
         print"   Do you want to upgrade your bow and arrow?('yes' or 'no')"
-        choice = raw_input("   >").lower()
+        choice = raw_input("  > ").lower()
         if choice == "yes":
             bow_and_arrow_upgrade()
 

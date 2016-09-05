@@ -14,15 +14,15 @@ class Zortria(Tkinter.Tk):
     def launcherInitialize(self):
         self.grid()
 
-        startButton = Tkinter.Button(self,text=u"Start Game",
+        startButton = Tkinter.Button(self, text=u"Start Game",
                                 command=self.OnButtonClick)
-        startButton.grid(column=2,row=0)
+        startButton.grid(column=6, row=0)
 
         self.labelVariable = Tkinter.StringVar()
         self.label2Variable = Tkinter.StringVar()
         
         label = Tkinter.Label(self,textvariable=self.labelVariable,
-                              anchor="w",fg="white",bg="blue")
+                              anchor="w", fg="white", bg="blue")
         label.grid(column=0,row=1,columnspan=2,sticky='EW')
         
         label2 = Tkinter.Label(self,textvariable=self.label2Variable,

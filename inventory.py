@@ -5,43 +5,41 @@
 # These are the stats you start with at the beginning of the game.
 import time
 from Store import storeStats
-from Store import moneyValue
+from battleEngine import monster_money
 from Store import health_xp
 from battleEngine import level_xp
+from battleEngine import xp_to_level
+from battleEngine import xp_add
 
 global mana
 global level
-global money
 global xp_level
 
 level = level_xp()
 mana = 0
-money = moneyValue()
-xp_level = 1
 
 
 def defaultStats():
     global mana
-    global playerHealth
     global level
     global xp
     mana = 0
-    level = 1
-    return mana, playerHealth, level
+    return mana, level
+
 
 def showStats():
     storeStats()
 
+
 def showInventory():
     global xp_level
     global level
-    xp_level = xp_level + level * level
-    xp_level = xp_level * 100
-    xp, playerHealth = health_xp()
-    while xp >= 50:
-        level = level + 1
-        xp = xp - 50
-    money = moneyValue()
+    global money
+
+    money = monster_money()
+    playerHealth = health_xp()
+    level = xp_to_level()
+    xp = xp_add()
 
     print(" ")
     print("     Mana:")
@@ -60,4 +58,3 @@ def showInventory():
     print("     " + str(money))
     print(" ")
     print"Input command"
-    return level, xp

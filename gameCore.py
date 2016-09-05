@@ -8,14 +8,6 @@
 # <variable> = raw_input("> ")
 #
 # Do it EXACTLY as shown above. Copy and paste if you need to.
-
-global corNumberX
-global corNumberY
-global witchX
-global witchY
-global direction
-global money
-
 import random
 import time
 from Store import store
@@ -28,22 +20,113 @@ from battleEngine import use_weapons
 from battleEngine import money_return
 from gameStartTest import gameStart
 from battleEngine import treasure
+from battleEngine import map_money
 
+global corNumberX
+global corNumberY
+global witchX
+global witchY
+global direction
+global map
+global mapX
+global mapY
+
+witchX = 1
+witchX = 1
 corNumberX = 1
 corNumberY = 1
-money = money_return()
-witchX = 2  # random.randint(0,10)
-witchY = 2  # random.randint(0,10)
 direction = ['north', 'south', 'east', 'west']
+map = False
+mapX = random.randint(1, 10)
+mapY = random.randint(1, 10)
+hard = False
 
+def game_mode():
+    global hard
+    global witchX
+    global witchY
+    print"What level do you want to play?('easy' or 'hard')"
+    mode = raw_input("> ")
+    if mode == "hard".lower():
+        witchX = random.randint(0, 10)
+        witchY = random.randint(0, 10)
+
+    elif mode == "easy".lower():
+        witchX = 2
+        witchY = 8
+
+    else:
+        game_mode()
 
 def witch():
     global witchX
     global witchY
+    global corNumberX
+    global corNumberY
+    global map
+    global mapX
+    global mapY
 
-    witchX = random.randint(1, 10)
-    witchY = random.randint(1, 10)
-    
+    money = money_return()
+
+    if witchX == corNumberX:
+        if witchY == corNumberY:
+            if map == False:
+                print"  You have found the witches hut."
+                time.sleep(1)
+                print"  Do you want to enter?"
+                enter = raw_input("  >  ").lower()
+                if enter == "yes":
+                    print"  Witch: It looks like you have found me. You might be looking for the map I have."
+                    time.sleep(2)
+                    print"  The only way you will get it from me is to pay me. I'll charge a good price, $200."
+                    print"  Do you want to buy it?('yes' or 'no')"
+                    buy_map = raw_input("  >  ")
+                    if buy_map == "yes".lower():
+                        if money >= 200:
+                            print""
+                            print"  You just bought the map!"
+                            time.sleep(1)
+                            print"  Input command 'map' to show the map."
+                            map_money()
+                            map = True
+
+                            print""
+                            print"Input Command."
+                            playerAction()
+
+                        else:
+                            print"  You don't have enough money"
+                            time.sleep(1)
+                            print""
+                            print"Input Command."
+                            corNumberY = corNumberY + 1
+                            playerAction()
+
+                    elif buy_map == "no".lower():
+                        print""
+                        print"Input Command"
+                        corNumberY = corNumberY + 1
+                        playerAction()
+
+
+                    else:
+                        print""
+                        print"  Invalid Command."
+                        print""
+                        witch()
+                elif enter == "no":
+                    print""
+                    print"Input Command"
+                    corNumberY = corNumberY + 1
+
+                else:
+                    print""
+                    print"  Invalid Command."
+                    print""
+                    witch()
+
+    return money
 
 def monsterEncounter():  # I think this would be better than monsterMove for a few reasons. Just an idea, though.
     monsterChance = random.randint(1, 5)
@@ -65,6 +148,7 @@ def playerAction():
     global corNumberY
     global direction
 
+    witch()
     print("You are at X:" + str(corNumberX) + " Y:" + str(corNumberY))
     playerInput = raw_input("> ").lower()
 
@@ -141,13 +225,28 @@ def playerAction():
             print("Will not exit the game.")
             playerAction()
 
-    elif playerInput == "inventory":
+    elif playerInput == "inventory".lower():
         showStats()
         playerAction()
 
     elif playerInput == "help":
 
         playerAction()
+
+    if playerInput == "map".lower():
+        global map
+        global mapX
+        global mapY
+
+        if map == True:
+            print""
+            print"  Go to X:" + str(mapX) + " Y:" + str(mapY)
+            print""
+            time.sleep(1)
+            playerAction()
+
+        else:
+            print"  You don't have the map"
 
     else:
         print("Invalid command.")
@@ -159,6 +258,7 @@ def playerAction():
         #       if monsterY == corNumberY:
         #               battleInput()
         # And I'll let Timmy2005 finish the code.
+        #X:3 Y:1
 
 def hidden_treasure():
     global corNumberX
@@ -174,8 +274,9 @@ def hidden_treasure():
                 treasure()
                 playerAction()
 
-
-gameStart() #This is commented out just for testing. We can run gameStart() for players.
+game_mode()
+print""
+#gameStart() #This is commented out just for testing. We can run gameStart() for players.
 corNumberX = random.randint(3, 7)
 corNumberY = random.randint(1, 5)
 print"Input command"
